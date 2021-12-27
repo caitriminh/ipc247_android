@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ipc247">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".view.hoso.NhanVienTangCaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.kho.NhapKhoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.kho.BaoHanhActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.hoso.NghiPhepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.chamcong.ChamCongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.kho.ThongTinPhieuXuatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.tienluong.TienLuongActivity"
+            android:exported="false" />
+        <activity android:name=".system.ImagePickerActivity" />
+        <activity android:name=".Ipc247Activity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".view.hethong.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.kho.BarcodeActivity" />
+        <activity android:name=".view.kho.XuatKhoTempActivity" />
+        <activity android:name=".view.kho.TonKhoActivity" />
+        <activity android:name=".view.kho.XuatKhoActivity" />
+        <activity android:name=".view.hoso.CongTacActivity" />
+        <activity android:name=".view.hoso.VeSomActivity" />
+        <activity android:name=".view.hoso.NhanVienActivity" />
+        <activity
+            android:name=".view.kho.BarcodeScanActivity"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".view.kho.BarcodeBaoHanh2Activity"
+            android:screenOrientation="sensor" />
+
+        <service android:name=".system.MyFirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

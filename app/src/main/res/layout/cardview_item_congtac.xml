@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_id"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:theme="@style/AppTheme"
+    cardview:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:id="@+id/div_congtac"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:weightSum="1.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/txtHoTen"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="0.55"
+                    android:gravity="left|center_vertical"
+                    android:text="CÁI TRÍ MINH"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTuNgay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.45"
+                    android:gravity="right|center_vertical"
+                    android:text="Ngày đi: 21-12-2021 08:00"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/txtPhongBan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="0.55"
+                    android:gravity="left|center_vertical"
+                    android:text="CÁI TRÍ MINH"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:id="@+id/txtDenNgay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.45"
+                    android:gravity="right|center_vertical"
+                    android:text="Ngày về: 21-12-2021 08:00"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="left|center_vertical"
+                android:text="Lý do:"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txtLyDo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0.3"
+                android:gravity="left|top"
+                android:text="Đi Bình Phước"
+                android:textSize="14dp"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.3"
+                    android:gravity="left|center_vertical"
+                    android:text="Người xác nhận"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtNguoiXacNhan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.7"
+                    android:gravity="right|center_vertical"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.3"
+                    android:gravity="left|center_vertical"
+                    android:text="Người duyệt"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtNguoiDuyet"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.7"
+                    android:gravity="right|center_vertical"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

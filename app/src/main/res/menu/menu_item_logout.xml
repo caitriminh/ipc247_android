@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="saveourcar.soc.MainActivity">
+    <item
+        android:id="@+id/btnLogout"
+        android:icon="@drawable/ic_logout_white"
+        android:title="Logout"
+        app:showAsAction="always" />
+
+<!--    <item-->
+<!--        android:id="@+id/btnChucNang"-->
+<!--        android:icon="@drawable/ic_list_chucnang_white"-->
+<!--        android:title="Chức năng"-->
+<!--        app:showAsAction="always" />-->
+</menu>
