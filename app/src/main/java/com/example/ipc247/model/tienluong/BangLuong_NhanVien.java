@@ -148,6 +148,10 @@ public class BangLuong_NhanVien {
     @Expose
     private double congHeSo3;
 
+    @SerializedName("thamNien")
+    @Expose
+    private double thamNien;
+
     public String getTinhTrang() {
         return tinhTrang;
     }
@@ -340,13 +344,6 @@ public class BangLuong_NhanVien {
         this.thuNhapTruocThue = thuNhapTruocThue;
     }
 
-    public double getTienHoaHong() {
-        return tienHoaHong;
-    }
-
-    public void setTienHoaHong(double tienHoaHong) {
-        this.tienHoaHong = tienHoaHong;
-    }
 
     public double getXangXe_DienThoai() {
         return xangXe_DienThoai;
@@ -434,5 +431,21 @@ public class BangLuong_NhanVien {
 
     public void setCongHeSo3(double congHeSo3) {
         this.congHeSo3 = congHeSo3;
+    }
+
+    public double getTienHoaHong() {
+        return tienHoaHong;
+    }
+
+    public void setTienHoaHong(double tienHoaHong) {
+        this.tienHoaHong = tienHoaHong;
+    }
+
+    public double getThamNien() {
+        return thamNien;
+    }
+
+    public void setThamNien(double thamNien) {
+        this.thamNien = thamNien;
     }
 }

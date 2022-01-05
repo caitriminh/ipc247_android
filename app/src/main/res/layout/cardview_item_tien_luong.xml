@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_id"
     android:layout_width="match_parent"
-    android:layout_height="630dp"
+    android:layout_height="680dp"
     android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -495,7 +495,7 @@
                     android:id="@+id/txtChuyenCan"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="0.25"
                     android:gravity="right|center_vertical"
                     android:textSize="14dp"
@@ -506,7 +506,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
                     android:gravity="left|center_vertical"
-                    android:text="Xăng xe, ĐT"
+                    android:text="Xăng xe"
                     android:textSize="14dp" />
 
                 <TextView
@@ -539,7 +539,7 @@
                     android:id="@+id/txtCongTacPhi"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="0.25"
                     android:gravity="right|center_vertical"
                     android:textSize="14dp"
@@ -574,17 +574,35 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.25"
                     android:gravity="left|center_vertical"
-                    android:text="Phụ cấp (Đồng phục, khám bệnh...)"
+                    android:text="Đồng phục, DL, khám bệnh..."
                     android:textSize="14dp" />
 
                 <TextView
                     android:id="@+id/txtPhuCapKhac"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.25"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="left|center_vertical"
+                    android:text="Thâm niên"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtThamNien"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="8dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.25"
                     android:gravity="right|center_vertical"
                     android:textSize="14dp"
                     android:textStyle="bold" />

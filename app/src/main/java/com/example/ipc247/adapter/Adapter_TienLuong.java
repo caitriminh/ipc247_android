@@ -83,6 +83,8 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
         Double dblLuong70 = data.get(position).getLuong70();
         Double dblLuong50 = data.get(position).getLuong50();
 
+        Double dblThamNien = data.get(position).getThamNien();
+
         holder.txtHoTen.setText(data.get(position).getHoTen() + " (" + data.get(position).getNgayCongChuan()+")");
         holder.txtPhongBan.setText(data.get(position).getPhongBan() + " / Chức vụ: " + data.get(position).getChucVu());
         holder.txtBacLuong.setText("Bậc lương: " + data.get(position).getBacLuong().toString());
@@ -118,6 +120,8 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
         holder.txtLuong100.setText(format1.format(dblLuong100));
         holder.txtLuong70.setText(format1.format(dblLuong70));
         holder.txtLuong50.setText(format1.format(dblLuong50));
+
+        holder.txtThamNien.setText(format1.format(dblThamNien));
     }
 
 
@@ -213,6 +217,9 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
 
         @BindView(R.id.txtLuong50)
         TextView txtLuong50;
+
+        @BindView(R.id.txtThamNien)
+        TextView txtThamNien;
 
         public RecyclerViewHolder(View itemView) {
             super(itemView);
