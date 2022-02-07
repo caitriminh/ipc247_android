@@ -35,7 +35,6 @@
                     android:id="@+id/txtHoTen"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.5"
                     android:gravity="left|center_vertical"
                     android:text="CÁI TRÍ MINH"
@@ -48,7 +47,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:gravity="right|center_vertical"
-                    android:text="21-12-2021"
+                    android:layout_marginRight="8dp"
                     android:textSize="14dp" />
             </LinearLayout>
 
@@ -98,7 +97,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người xác nhận"
@@ -110,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
                     android:gravity="right|center_vertical"
-                    android:text=""
+                    android:layout_marginRight="8dp"
                     android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -124,7 +122,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người duyệt"
@@ -136,7 +133,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
                     android:gravity="right|center_vertical"
-                    android:text=""
+                    android:layout_marginRight="8dp"
                     android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>

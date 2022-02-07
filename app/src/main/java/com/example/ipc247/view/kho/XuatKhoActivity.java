@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.SearchView;
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_XuatKho;
+import com.example.ipc247.adapter.kho.Adapter_XuatKho;
 import com.example.ipc247.api.ApiXuatKho;
 import com.example.ipc247.model.kho.ResultInventory;
 import com.example.ipc247.model.kho.T_Inventory;

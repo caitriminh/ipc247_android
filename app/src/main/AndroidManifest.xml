@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".view.hoso.NhanVienTangCaActivity"
+            android:name=".view.nhanvien.NhanVienTangCaActivity"
             android:exported="false" />
         <activity
             android:name=".view.kho.NhapKhoActivity"
@@ -26,7 +26,7 @@
             android:name=".view.kho.BaoHanhActivity"
             android:exported="false" />
         <activity
-            android:name=".view.hoso.NghiPhepActivity"
+            android:name=".view.nhanvien.NghiPhepActivity"
             android:exported="false" />
         <activity
             android:name=".view.chamcong.ChamCongActivity"
@@ -54,9 +54,9 @@
         <activity android:name=".view.kho.XuatKhoTempActivity" />
         <activity android:name=".view.kho.TonKhoActivity" />
         <activity android:name=".view.kho.XuatKhoActivity" />
-        <activity android:name=".view.hoso.CongTacActivity" />
-        <activity android:name=".view.hoso.VeSomActivity" />
-        <activity android:name=".view.hoso.NhanVienActivity" />
+        <activity android:name=".view.nhanvien.CongTacActivity" />
+        <activity android:name=".view.nhanvien.VeSomActivity" />
+        <activity android:name=".view.nhanvien.NhanVienActivity" />
         <activity
             android:name=".view.kho.BarcodeScanActivity"
             android:screenOrientation="sensor" />
@@ -69,6 +69,15 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".view.bsc.BSCNhanVienActivity"/>
+        <activity android:name=".view.bsc.ChiTietBSCNhanVienActivity"/>
+        <activity android:name=".view.bsc.BSCPhongBanActivity"/>
+        <activity android:name=".view.bsc.ChiTietBSCPhongBanActivity"/>
+        <activity android:name=".view.bsc.BSCViTriCongViecActivity"/>
+        <activity android:name=".view.bsc.ChiTietBSCViTriCongViecActivity"/>
+        <activity android:name=".view.nhanvien.PhepNamActivity"/>
+        <activity android:name=".view.nhanvien.NhanVienImageActivity"/>
     </application>
 
 </manifest>

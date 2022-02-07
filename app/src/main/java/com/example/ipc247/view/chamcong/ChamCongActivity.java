@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_ChamCong;
+import com.example.ipc247.adapter.nhansu.Adapter_ChamCong;
 import com.example.ipc247.api.ApiChamCong;
 import com.example.ipc247.model.chamcong.ResultChamCong;
 import com.example.ipc247.model.chamcong.T_NhatKyChamCong;

@@ -110,7 +110,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
+
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người xác nhận"
@@ -137,7 +137,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người duyệt"

@@ -9,8 +9,13 @@
 
     <item
         android:id="@+id/nav_nhansu"
-        android:icon="@drawable/ic_nghiep_vu_white"
+        android:icon="@drawable/ic_user_white"
         android:title="@string/menu_nhansu" />
+
+    <item
+        android:id="@+id/nav_bsc"
+        android:icon="@drawable/ic_nghiep_vu_white"
+        android:title="@string/menu_bsc" />
 
     <item
         android:id="@+id/nav_Kho"

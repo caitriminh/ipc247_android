@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingLeft="8dp"
-            android:weightSum="22">
+            android:weightSum="23">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -419,6 +419,49 @@
 
                 <TextView
                     android:id="@+id/txtLuongPhepNam"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.22"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="left|center_vertical"
+                    android:text="- Công lễ/tết"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txtCongLeTet"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.25"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.28"
+                    android:gravity="left|center_vertical"
+                    android:text="- Lương lễ/tết"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtLuongLeTet"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="8dp"

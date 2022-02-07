@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login2);
 
         pref = getSharedPreferences("SESSION", MODE_PRIVATE);
         boolean isLogin = pref.getBoolean("isLogin", false);

@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_Menu;
+import com.example.ipc247.adapter.hethong.Adapter_Menu;
 import com.example.ipc247.api.ApiMenu;
 import com.example.ipc247.model.menu.ResultMenu;
 import com.example.ipc247.model.menu.T_Menu;
@@ -23,11 +23,12 @@ import com.example.ipc247.system.ClickListener;
 import com.example.ipc247.system.IPC247;
 import com.example.ipc247.system.RecyclerTouchListener;
 import com.example.ipc247.view.chamcong.ChamCongActivity;
-import com.example.ipc247.view.hoso.CongTacActivity;
-import com.example.ipc247.view.hoso.NghiPhepActivity;
-import com.example.ipc247.view.hoso.NhanVienActivity;
-import com.example.ipc247.view.hoso.NhanVienTangCaActivity;
-import com.example.ipc247.view.hoso.VeSomActivity;
+import com.example.ipc247.view.nhanvien.CongTacActivity;
+import com.example.ipc247.view.nhanvien.NghiPhepActivity;
+import com.example.ipc247.view.nhanvien.NhanVienActivity;
+import com.example.ipc247.view.nhanvien.NhanVienTangCaActivity;
+import com.example.ipc247.view.nhanvien.PhepNamActivity;
+import com.example.ipc247.view.nhanvien.VeSomActivity;
 import com.example.ipc247.view.tienluong.TienLuongActivity;
 import com.google.gson.JsonObject;
 
@@ -106,6 +107,9 @@ public class NhanSuFragment extends Fragment {
                     startActivity(intent2);
                 } else if (IPC247.objMenu.getMamenu().equals("NS022")) {
                     Intent intent2 = new Intent(mContext, VeSomActivity.class);
+                    startActivity(intent2);
+                } else if (IPC247.objMenu.getMamenu().equals("NS010")) {
+                    Intent intent2 = new Intent(mContext, PhepNamActivity.class);
                     startActivity(intent2);
                 }
             }

@@ -13,7 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ipc247.system.IPC247;
-import com.example.ipc247.view.hoso.HoSoFragment;
+import com.example.ipc247.view.nhanvien.HoSoFragment;
+import com.example.ipc247.view.menu.BSCFragment;
 import com.example.ipc247.view.menu.KhoFragment;
 import com.example.ipc247.view.menu.NhanSuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -53,6 +54,12 @@ public class Ipc247Activity extends AppCompatActivity {
                 case R.id.nav_nhansu:
                     toolbar.setTitle("Nhân Sự");
                     fragment = new NhanSuFragment();
+                    OpenFragment(fragment);
+                    return true;
+
+                case R.id.nav_bsc:
+                    toolbar.setTitle("BSC");
+                    fragment = new BSCFragment();
                     OpenFragment(fragment);
                     return true;
 

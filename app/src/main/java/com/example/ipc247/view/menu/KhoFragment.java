@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_Menu;
+import com.example.ipc247.adapter.hethong.Adapter_Menu;
 import com.example.ipc247.api.ApiMenu;
 import com.example.ipc247.model.menu.ResultMenu;
 import com.example.ipc247.model.menu.T_Menu;
@@ -27,7 +27,6 @@ import com.example.ipc247.view.kho.BaoHanhActivity;
 import com.example.ipc247.view.kho.NhapKhoActivity;
 import com.example.ipc247.view.kho.TonKhoActivity;
 import com.example.ipc247.view.kho.XuatKhoActivity;
-import com.example.ipc247.view.kho.XuatKhoTempActivity;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;

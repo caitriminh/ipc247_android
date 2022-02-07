@@ -21,7 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_XuatTemp;
+import com.example.ipc247.adapter.kho.Adapter_XuatTemp;
 import com.example.ipc247.api.ApiXuatKho;
 import com.example.ipc247.model.kho.ResultKhachHang;
 import com.example.ipc247.model.kho.ResultSaleOrder;

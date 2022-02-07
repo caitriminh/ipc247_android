@@ -14,6 +14,10 @@ public class T_NhanVien {
     @Expose
     private String ngaySinhText;
 
+    @SerializedName("maNV")
+    @Expose
+    private String maNV;
+
     @SerializedName("hoTen")
     @Expose
     private String hoTen;
@@ -65,6 +69,10 @@ public class T_NhanVien {
     @SerializedName("ngayVaoLamText")
     @Expose
     private String ngayVaoLamText;
+
+    @SerializedName("hinh")
+    @Expose
+    private String hinh;
 
     public String getGioiTinh() {
         return gioiTinh;
@@ -184,5 +192,21 @@ public class T_NhanVien {
 
     public void setNgayVaoLamText(String ngayVaoLamText) {
         this.ngayVaoLamText = ngayVaoLamText;
+    }
+
+    public String getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
+    }
+
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
     }
 }

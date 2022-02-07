@@ -152,6 +152,18 @@ public class BangLuong_NhanVien {
     @Expose
     private double thamNien;
 
+    @SerializedName("ungLuong")
+    @Expose
+    private double ungLuong;
+
+    @SerializedName("congLeTet")
+    @Expose
+    private double congLeTet;
+
+    @SerializedName("luongLeTet")
+    @Expose
+    private double luongLeTet;
+
     public String getTinhTrang() {
         return tinhTrang;
     }
@@ -447,5 +459,29 @@ public class BangLuong_NhanVien {
 
     public void setThamNien(double thamNien) {
         this.thamNien = thamNien;
+    }
+
+    public double getUngLuong() {
+        return ungLuong;
+    }
+
+    public void setUngLuong(double ungLuong) {
+        this.ungLuong = ungLuong;
+    }
+
+    public double getCongLeTet() {
+        return congLeTet;
+    }
+
+    public void setCongLeTet(double congLeTet) {
+        this.congLeTet = congLeTet;
+    }
+
+    public double getLuongLeTet() {
+        return luongLeTet;
+    }
+
+    public void setLuongLeTet(double luongLeTet) {
+        this.luongLeTet = luongLeTet;
     }
 }

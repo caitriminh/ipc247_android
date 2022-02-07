@@ -35,7 +35,6 @@
                     android:id="@+id/txtHoTen"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.6"
                     android:gravity="left|center_vertical"
                     android:text="CÁI TRÍ MINH"
@@ -49,6 +48,7 @@
                     android:layout_weight="0.4"
                     android:gravity="right|center_vertical"
                     android:text="Ngày nghỉ: 21-12-2021"
+                    android:layout_marginRight="8dp"
                     android:textSize="14dp" />
             </LinearLayout>
 
@@ -62,7 +62,6 @@
                     android:id="@+id/txtPhongBan"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.7"
                     android:gravity="left|center_vertical"
                     android:text="CÁI TRÍ MINH"
@@ -76,6 +75,7 @@
                     android:gravity="right|center_vertical"
                     android:text="1.0 (ngày)"
                     android:textSize="14dp"
+                    android:layout_marginRight="8dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -106,7 +106,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người xác nhận"
@@ -118,7 +117,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
                     android:gravity="right|center_vertical"
-                    android:text=""
+                    android:layout_marginRight="8dp"
                     android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -132,7 +131,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
                     android:text="Người duyệt"
@@ -144,8 +142,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
                     android:gravity="right|center_vertical"
-                    android:text=""
                     android:textSize="14dp"
+                    android:layout_marginRight="8dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

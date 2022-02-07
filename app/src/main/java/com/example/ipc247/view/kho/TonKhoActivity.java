@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_TonKho;
+import com.example.ipc247.adapter.kho.Adapter_TonKho;
 import com.example.ipc247.api.ApiTonKho;
 import com.example.ipc247.model.kho.ResultTonKho;
 import com.example.ipc247.model.kho.T_TonKho;

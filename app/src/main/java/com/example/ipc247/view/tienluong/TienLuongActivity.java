@@ -6,28 +6,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.ipc247.R;
-import com.example.ipc247.adapter.Adapter_CongTac;
-import com.example.ipc247.adapter.Adapter_TienLuong;
-import com.example.ipc247.adapter.Adapter_TonKho;
-import com.example.ipc247.api.ApiMasterData;
-import com.example.ipc247.api.ApiNhanVien;
+import com.example.ipc247.adapter.nhansu.Adapter_TienLuong;
+import com.example.ipc247.api.ApiPhanQuyen;
 import com.example.ipc247.api.ApiTienLuong;
-import com.example.ipc247.model.kho.T_TonKho;
-import com.example.ipc247.model.masterdata.ResultMasterData;
-import com.example.ipc247.model.masterdata.T_MasterData;
-import com.example.ipc247.model.nhanvien.CustomResult;
-import com.example.ipc247.model.nhanvien.T_NhanVien;
-import com.example.ipc247.model.nhanvien.T_NhanVienNghiPhep;
+import com.example.ipc247.model.login.ResultPhanQuyen;
+import com.example.ipc247.model.login.T_PhanQuyen;
 import com.example.ipc247.model.tienluong.BangLuong_NhanVien;
 import com.example.ipc247.model.tienluong.ResultKyLuong;
 import com.example.ipc247.model.tienluong.ResultTienLuong;
@@ -36,7 +30,6 @@ import com.example.ipc247.system.IPC247;
 import com.example.ipc247.system.TM_Toast;
 import com.google.gson.JsonObject;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -73,16 +66,16 @@ public class TienLuongActivity extends AppCompatActivity {
         mContext = this;
 
         Calendar calendar = Calendar.getInstance();
-        intThang = calendar.get(Calendar.MONTH)+1;
+        intThang = calendar.get(Calendar.MONTH) + 1;
         intNam = calendar.get(Calendar.YEAR);
         setTitle("Bảng Lương (" + intThang + '/' + intNam + ')');
-        GetBangLuongNhanVien();
+        GetPhanQuyenBangLuong();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Làm mới dữ liệu
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                GetBangLuongNhanVien();
+                GetPhanQuyenBangLuong();
             }
         });
     }
@@ -100,6 +93,46 @@ public class TienLuongActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void GetPhanQuyenBangLuong() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("action", "GET_BY_ID");
+        jsonObject.addProperty("idNhomQuyen", IPC247.IdNhomQuyen);
+        jsonObject.addProperty("mamenu", "NS018");
+        Call<ResultPhanQuyen> call = ApiPhanQuyen.apiPhanQuyen.GetPhanQuyen(jsonObject);
+        call.enqueue(new Callback<ResultPhanQuyen>() {
+            @Override
+            public void onResponse(Call<ResultPhanQuyen> call, Response<ResultPhanQuyen> response) {
+                ResultPhanQuyen result = response.body();
+                if (result == null) {
+                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
+                    return;
+                }
+                if (result.getStatusCode() == 200) {
+                    List<T_PhanQuyen> lstPhanQuyen = result.getDtPhanQuyen();
+                    if (lstPhanQuyen.size() == 0) {
+                        TM_Toast.makeText(mContext, "Không được phép xác nhận nghỉ phép.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
+                        return;
+                    }
+                    String chophep = lstPhanQuyen.get(0).getXacnhan();
+                    if (chophep.equals("OK")) {
+                        GetBangLuongNhanVien("");
+                    } else {
+                        GetBangLuongNhanVien(IPC247.strMaNV);
+                    }
+
+                } else {
+                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultPhanQuyen> call, Throwable t) {
+                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
+            }
+        });
+    }
+
 
     public void GetKyLuong() {
         JsonObject jsonObject = new JsonObject();
@@ -133,7 +166,7 @@ public class TienLuongActivity extends AppCompatActivity {
                                     T_KyLuong kyLuong = lstKyLuongTemps.get(i);
                                     intThang = kyLuong.getThang();
                                     intNam = kyLuong.getNam();
-                                    GetBangLuongNhanVien();
+                                    GetPhanQuyenBangLuong();
                                     dialogInterface.dismiss();
                                 }
                             }
@@ -156,18 +189,38 @@ public class TienLuongActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search_item, menu);
         getMenuInflater().inflate(R.menu.menu_item_date, menu);
+        SearchManager searchManager = (SearchManager) this.getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) menu.findItem(R.id.menuSearch).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setQueryHint("Tìm kiếm...");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (adapter == null) {
+                    Log.w("adapter null", "null");
+                }
+                adapter.filter(newText);
+                return false;
+            }
+        });
         return true;
     }
 
-    private void GetBangLuongNhanVien() {
+    private void GetBangLuongNhanVien(String strMaNV) {
         setTitle("Bảng Lương " +
                 "(" + intThang + '/' + intNam + ')');
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("action", "GET_TINHLUONG");
         jsonObject.addProperty("thang", intThang);
         jsonObject.addProperty("nam", intNam);
-        jsonObject.addProperty("maNV", IPC247.strMaNV);
+        jsonObject.addProperty("maNV", strMaNV);
         Call<ResultTienLuong> call = ApiTienLuong.apiTienLuong.GetBangLuong_NhanVien(jsonObject);
         call.enqueue(new Callback<ResultTienLuong>() {
             @Override
