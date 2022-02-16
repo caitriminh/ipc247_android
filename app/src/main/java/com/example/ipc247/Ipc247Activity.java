@@ -13,7 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ipc247.system.IPC247;
-import com.example.ipc247.view.nhanvien.HoSoFragment;
+import com.example.ipc247.view.giaoviec.GiaoViecFragment;
+import com.example.ipc247.view.nhanvien.HoSo2Fragment;
 import com.example.ipc247.view.menu.BSCFragment;
 import com.example.ipc247.view.menu.KhoFragment;
 import com.example.ipc247.view.menu.NhanSuFragment;
@@ -34,7 +35,7 @@ public class Ipc247Activity extends AppCompatActivity {
 
         // load the store fragment by default
         toolbar.setTitle(IPC247.strTenNV + " - " + getPublicIPAddress());
-        OpenFragment(new HoSoFragment());
+        OpenFragment(new HoSo2Fragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -47,7 +48,7 @@ public class Ipc247Activity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.nav_hoso:
                     toolbar.setTitle(IPC247.strTenNV + " - " + getPublicIPAddress());
-                    fragment = new HoSoFragment();
+                    fragment = new HoSo2Fragment();
                     OpenFragment(fragment);
                     return true;
 
@@ -66,6 +67,12 @@ public class Ipc247Activity extends AppCompatActivity {
                 case R.id.nav_Kho:
                     toolbar.setTitle("Kho");
                     fragment = new KhoFragment();
+                    OpenFragment(fragment);
+                    return true;
+
+                case R.id.nav_giaoviec:
+                    toolbar.setTitle("Giao Việc");
+                    fragment = new GiaoViecFragment();
                     OpenFragment(fragment);
                     return true;
             }

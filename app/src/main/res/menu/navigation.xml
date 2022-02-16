@@ -18,6 +18,11 @@
         android:title="@string/menu_bsc" />
 
     <item
+        android:id="@+id/nav_giaoviec"
+        android:icon="@drawable/ic_giaoviec_white"
+        android:title="@string/menu_giaoviec" />
+
+    <item
         android:id="@+id/nav_Kho"
         android:icon="@drawable/ic_kho"
         android:title="@string/menu_kho" />

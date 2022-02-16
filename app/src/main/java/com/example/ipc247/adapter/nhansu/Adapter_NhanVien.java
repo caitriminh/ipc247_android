@@ -64,8 +64,6 @@ public class Adapter_NhanVien extends RecyclerView.Adapter<Adapter_NhanVien.Recy
         @BindView(R.id.txtHoTen)
         TextView txtHoTen;
 
-
-
         @BindView(R.id.txtPhongBan)
         TextView txtPhongBan;
 
@@ -80,6 +78,8 @@ public class Adapter_NhanVien extends RecyclerView.Adapter<Adapter_NhanVien.Recy
 
         @BindView(R.id.txtDiaChi)
         TextView txtDiaChi;
+
+
 
         public RecyclerViewHolder(View itemView) {
             super(itemView);

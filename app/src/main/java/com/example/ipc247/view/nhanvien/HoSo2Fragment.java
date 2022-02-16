@@ -1,13 +1,16 @@
 package com.example.ipc247.view.nhanvien;
 
 import static android.content.Context.MODE_PRIVATE;
-
 import static com.example.ipc247.system.IPC247.getPublicIPAddress;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,22 +27,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
 import com.example.ipc247.R;
-
 import com.example.ipc247.api.ApiChamCong;
 import com.example.ipc247.api.ApiNhanVien;
 import com.example.ipc247.model.chamcong.ResultChamCong;
 import com.example.ipc247.model.chamcong.T_NhatKyChamCong;
 import com.example.ipc247.model.nhanvien.CustomResult;
 import com.example.ipc247.model.nhanvien.T_NhanVien;
+import com.example.ipc247.system.FTP_CMD;
 import com.example.ipc247.system.IPC247;
+import com.example.ipc247.system.ImagePickerActivity;
 import com.example.ipc247.system.TM_Toast;
 import com.example.ipc247.view.hethong.LoginActivity;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.JsonObject;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
+import com.squareup.picasso.Picasso;
 
-
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -48,29 +57,29 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HoSoFragment extends Fragment {
+public class HoSo2Fragment extends Fragment {
 
     private Unbinder unbinder;
     @BindView(R.id.txtHoTen)
-    TextView txtHoTen;
+    TextInputEditText txtHoTen;
 
     @BindView(R.id.txtGioiTinh)
-    TextView txtGioiTinh;
-
-    @BindView(R.id.txtNoiSinh)
-    TextView txtNoiSinh;
+    TextInputEditText txtGioiTinh;
 
     @BindView(R.id.txtPhongBan)
-    TextView txtPhongBan;
+    TextInputEditText txtPhongBan;
 
     @BindView(R.id.txtNgaySinh)
-    TextView txtNgaySinh;
+    TextInputEditText txtNgaySinh;
+
+    @BindView(R.id.txtNgayVaoLam)
+    TextInputEditText txtNgayVaoLam;
 
     @BindView(R.id.txtCheckIn)
-    TextView txtCheckIn;
+    TextInputEditText txtCheckIn;
 
     @BindView(R.id.txtCheckOut)
-    TextView txtCheckOut;
+    TextInputEditText txtCheckOut;
 
     @BindView(R.id.btnCheckIn)
     Button btnCheckIn;
@@ -78,18 +87,21 @@ public class HoSoFragment extends Fragment {
     @BindView(R.id.btnCheckOut)
     Button btnCheckOut;
 
+    @BindView(R.id.imgView)
+    ImageView imgView;
+
     @BindView(R.id.txtTongNgayNghi)
-    TextView txtTongNgayNghi;
+    TextInputEditText txtTongNgayNghi;
 
     @BindView(R.id.txtTongNgayCong)
-    TextView txtTongNgayCong;
+    TextInputEditText txtTongNgayCong;
 
     @BindView(R.id.txtPhepNam)
-    TextView txtPhepNam;
-
-    @BindView(R.id.txtIPChamCong)
-    TextView txtIPChamCong;
-
+    TextInputEditText txtPhepNam;
+    //
+//    @BindView(R.id.txtIPChamCong)
+//    TextView txtIPChamCong;
+//
     Context mContext;
     boolean wfh;
     String ip_chamcong;
@@ -108,7 +120,7 @@ public class HoSoFragment extends Fragment {
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hoso, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_hoso2, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -241,12 +253,20 @@ public class HoSoFragment extends Fragment {
                 }
                 if (result.getStatusCode() == 200) {
                     List<T_NhanVien> lstNhanVien = result.getDtNhanVien();
-                    txtHoTen.setText(lstNhanVien.get(0).getHoTen());
+
+                    String url = lstNhanVien.get(0).getHinh();
+                    Picasso.get()
+                            .load(url)
+                            .error(R.drawable.logo_ipc247)//hien thi hinh mac dinh khi ko co hinh
+                            .placeholder(R.drawable.logo_ipc247)
+                            .into(imgView);
+
+                    txtHoTen.setText(" " + lstNhanVien.get(0).getHoTen());
                     IPC247.strTenNV = lstNhanVien.get(0).getHoTen();
-                    txtGioiTinh.setText(lstNhanVien.get(0).getGioiTinh());
-                    txtNgaySinh.setText(lstNhanVien.get(0).getNgaySinhText());
-                    txtNoiSinh.setText(lstNhanVien.get(0).getNoiSinh());
-                    txtPhongBan.setText(lstNhanVien.get(0).getPhongBan());
+                    txtGioiTinh.setText(" " + lstNhanVien.get(0).getGioiTinh());
+                    txtNgaySinh.setText(" " + lstNhanVien.get(0).getNgaySinhText());
+                    txtNgayVaoLam.setText(" " + lstNhanVien.get(0).getNgayVaoLamText());
+                    txtPhongBan.setText(" " + lstNhanVien.get(0).getPhongBan() + " / " + lstNhanVien.get(0).getChucVu());
                     txtCheckIn.setText(lstNhanVien.get(0).getCheckIn());
                     txtCheckOut.setText(lstNhanVien.get(0).getCheckOut());
                     if (txtCheckIn.getText().length() > 0) {
@@ -258,21 +278,18 @@ public class HoSoFragment extends Fragment {
                         btnCheckOut.setEnabled(false);
                         btnCheckIn.setEnabled(false);
                     }
-
                     DecimalFormat format = new DecimalFormat("#,##0.0");
 
                     Double dblTongCong = lstNhanVien.get(0).getTongCong();
                     txtTongNgayCong.setText(format.format(dblTongCong));
 
-                    DecimalFormat format1 = new DecimalFormat("#,##0.0");
                     Double dblPhepNam = lstNhanVien.get(0).getPhepNam();
-                    txtPhepNam.setText(format1.format(dblPhepNam));
+                    txtPhepNam.setText(format.format(dblPhepNam));
 
-                    DecimalFormat format2 = new DecimalFormat("#,##0.0");
                     Double dblTongNgayNghi = lstNhanVien.get(0).getTongNgayNghi();
-                    txtTongNgayNghi.setText(format2.format(dblTongNgayNghi));
-                    txtIPChamCong.setText(lstNhanVien.get(0).getiP_ChamCong());
-                    ip_chamcong = lstNhanVien.get(0).getiP_ChamCong();
+                    txtTongNgayNghi.setText(format.format(dblTongNgayNghi));
+
+                            ip_chamcong = lstNhanVien.get(0).getiP_ChamCong();
                     wfh = lstNhanVien.get(0).getChamCongIP();
 
                 } else {
@@ -301,7 +318,7 @@ public class HoSoFragment extends Fragment {
                 if (result.getStatusCode() == 200) {
                     List<T_NhatKyChamCong> lstChamCong = result.getDtChamCong();
                     if (lstChamCong.size() > 0) {
-                        txtCheckIn.setText(lstChamCong.get(0).getNgayChamCong());
+                        GetNhanVien();
                         btnCheckIn.setEnabled(false);
                         btnCheckOut.setEnabled(true);
                         TM_Toast.makeText(mContext, IPC247.tendangnhap + " đã check in lúc " + lstChamCong.get(0).getNgayChamCong(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
@@ -334,7 +351,7 @@ public class HoSoFragment extends Fragment {
                     List<T_NhatKyChamCong> lstChamCong = result.getDtChamCong();
                     if (lstChamCong.size() > 0) {
                         if (lstChamCong.get(0).getResult() == 1) {
-                            txtCheckOut.setText(lstChamCong.get(0).getNgayChamCong());
+                            GetNhanVien();
                             btnCheckOut.setEnabled(false);
                             TM_Toast.makeText(mContext, IPC247.tendangnhap + " đã check out lúc " + lstChamCong.get(0).getNgayChamCong(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
                         } else {
@@ -381,13 +398,13 @@ public class HoSoFragment extends Fragment {
         mBottomSheetDialog.show();
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btnLogout:
                 Logout();
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }

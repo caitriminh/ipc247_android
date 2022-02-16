@@ -74,6 +74,50 @@ public class T_NhanVien {
     @Expose
     private String hinh;
 
+    @SerializedName("tonGiao")
+    @Expose
+    private String tonGiao;
+
+    @SerializedName("danToc")
+    @Expose
+    private String danToc;
+
+    @SerializedName("mst")
+    @Expose
+    private String mst;
+
+    @SerializedName("soBHXH")
+    @Expose
+    private String soBHXH;
+
+    @SerializedName("soCMND")
+    @Expose
+    private String soCMND;
+
+    @SerializedName("noiCap")
+    @Expose
+    private String noiCap;
+
+    @SerializedName("ngayCapText")
+    @Expose
+    private String ngayCapText;
+
+    @SerializedName("soDT")
+    @Expose
+    private String soDT;
+
+    @SerializedName("email")
+    @Expose
+    private String email;
+
+    @SerializedName("soTK")
+    @Expose
+    private String soTK;
+
+    @SerializedName("nganHang")
+    @Expose
+    private String nganHang;
+
     public String getGioiTinh() {
         return gioiTinh;
     }
@@ -208,5 +252,93 @@ public class T_NhanVien {
 
     public void setHinh(String hinh) {
         this.hinh = hinh;
+    }
+
+    public String getTonGiao() {
+        return tonGiao;
+    }
+
+    public void setTonGiao(String tonGiao) {
+        this.tonGiao = tonGiao;
+    }
+
+    public String getDanToc() {
+        return danToc;
+    }
+
+    public void setDanToc(String danToc) {
+        this.danToc = danToc;
+    }
+
+    public String getMst() {
+        return mst;
+    }
+
+    public void setMst(String mst) {
+        this.mst = mst;
+    }
+
+    public String getSoBHXH() {
+        return soBHXH;
+    }
+
+    public void setSoBHXH(String soBHXH) {
+        this.soBHXH = soBHXH;
+    }
+
+    public String getNgayCapText() {
+        return ngayCapText;
+    }
+
+    public void setNgayCapText(String ngayCapText) {
+        this.ngayCapText = ngayCapText;
+    }
+
+    public String getNoiCap() {
+        return noiCap;
+    }
+
+    public void setNoiCap(String noiCap) {
+        this.noiCap = noiCap;
+    }
+
+    public String getSoCMND() {
+        return soCMND;
+    }
+
+    public void setSoCMND(String soCMND) {
+        this.soCMND = soCMND;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSoDT() {
+        return soDT;
+    }
+
+    public void setSoDT(String soDT) {
+        this.soDT = soDT;
+    }
+
+    public String getNganHang() {
+        return nganHang;
+    }
+
+    public void setNganHang(String nganHang) {
+        this.nganHang = nganHang;
+    }
+
+    public String getSoTK() {
+        return soTK;
+    }
+
+    public void setSoTK(String soTK) {
+        this.soTK = soTK;
     }
 }

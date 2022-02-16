@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".view.giaoviec.ThemGiaoViecActivity"
+            android:exported="false" />
         <activity
             android:name=".view.nhanvien.NhanVienTangCaActivity"
             android:exported="false" />
@@ -70,14 +72,14 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".view.bsc.BSCNhanVienActivity"/>
-        <activity android:name=".view.bsc.ChiTietBSCNhanVienActivity"/>
-        <activity android:name=".view.bsc.BSCPhongBanActivity"/>
-        <activity android:name=".view.bsc.ChiTietBSCPhongBanActivity"/>
-        <activity android:name=".view.bsc.BSCViTriCongViecActivity"/>
-        <activity android:name=".view.bsc.ChiTietBSCViTriCongViecActivity"/>
-        <activity android:name=".view.nhanvien.PhepNamActivity"/>
-        <activity android:name=".view.nhanvien.NhanVienImageActivity"/>
+        <activity android:name=".view.bsc.BSCNhanVienActivity" />
+        <activity android:name=".view.bsc.ChiTietBSCNhanVienActivity" />
+        <activity android:name=".view.bsc.BSCPhongBanActivity" />
+        <activity android:name=".view.bsc.ChiTietBSCPhongBanActivity" />
+        <activity android:name=".view.bsc.BSCViTriCongViecActivity" />
+        <activity android:name=".view.bsc.ChiTietBSCViTriCongViecActivity" />
+        <activity android:name=".view.nhanvien.PhepNamActivity" />
+        <activity android:name=".view.nhanvien.NhanVienImageActivity" />
     </application>
 
 </manifest>

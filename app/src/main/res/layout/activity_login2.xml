@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:orientation="vertical"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".view.hethong.LoginActivity">
 
     <RelativeLayout
@@ -18,9 +18,9 @@
         android:scrollbarThumbVertical="@null">
 
         <LinearLayout
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:orientation="vertical">
 
             <ImageView
@@ -31,8 +31,7 @@
                 android:layout_marginBottom="32dp"
                 android:scaleType="centerInside"
 
-                app:srcCompat="@drawable/logo_ipc247"
-                />
+                app:srcCompat="@drawable/logo_new" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,15 +112,15 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
-<!--            <Button-->
-<!--                style="@style/TextyButton"-->
-<!--                android:id="@+id/button_forgot_password"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginRight="24dp"-->
-<!--                android:text="@string/text_forgot_password" />-->
+            <!--            <Button-->
+            <!--                style="@style/TextyButton"-->
+            <!--                android:id="@+id/button_forgot_password"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:layout_marginRight="24dp"-->
+            <!--                android:text="@string/text_forgot_password" />-->
 
             <Button
                 android:id="@+id/btnLogin"
@@ -134,11 +133,11 @@
 
             <LinearLayout
                 android:id="@+id/social_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,27 +152,27 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_margin="8dp"
-                        app:srcCompat="@drawable/ic_facebook"
                         android:layout_width="40dp"
-                        android:layout_height="40dp" />
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        app:srcCompat="@drawable/ic_facebook" />
 
                     <ImageView
-                        android:layout_margin="8dp"
-                        app:srcCompat="@drawable/ic_twitter"
                         android:layout_width="40dp"
-                        android:layout_height="40dp" />
+                        android:layout_height="40dp"
+                        android:layout_margin="8dp"
+                        app:srcCompat="@drawable/ic_twitter" />
                 </LinearLayout>
             </LinearLayout>
 
             <Button
-                style="@style/TextyButton"
                 android:id="@+id/button_signup"
+                style="@style/TextyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="20dp"
                 android:onClick="onClick"
+                android:padding="20dp"
                 android:text="@string/text_signin_signup" />
         </LinearLayout>
 

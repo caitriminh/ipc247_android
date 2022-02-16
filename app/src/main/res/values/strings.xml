@@ -5,9 +5,13 @@
     <string name="menu_nhansu">Nhân Sự</string>
     <string name="menu_bsc">BSC</string>
     <string name="menu_kho">Kho</string>
+    <string name="menu_giaoviec">Giao Việc</string>
     <string name="hint_username">Tên đăng nhập</string>
     <string name="hint_password">Mật khẩu</string>
     <string name="button_sign_in">Đăng Nhập</string>
+    <string name="button_close">Đóng</string>
+    <string name="button_check_in">Check In</string>
+    <string name="button_check_out">Check Out</string>
     <string name="button_sign_up">Sign up</string>
     <string name="button_send">Send</string>
     <string name="text_forgot_password">Forgot password?</string>
@@ -24,4 +28,6 @@
     <string name="hint_email">Email</string>
     <string name="hint_phone">Phone</string>
     <string name="hint_confirm_password">Confirm Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
