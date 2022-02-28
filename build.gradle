@@ -31,11 +31,15 @@ buildscript {
         google()  // Google's Maven repository
 
     }
+
+//    repositories {
+//        maven { url 'https://jitpack.io' }
+//    }
+
     dependencies {
 
         // Add this line
         classpath 'com.google.gms:google-services:4.3.10'
-
     }
 }
 

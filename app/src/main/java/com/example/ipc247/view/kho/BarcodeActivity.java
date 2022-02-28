@@ -79,8 +79,6 @@ public class BarcodeActivity extends AppCompatActivity {
     private void askPermission(){
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
-
-
             if (ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ){
 
                 ActivityCompat.requestPermissions(BarcodeActivity.this,new String[]{Manifest.permission.CAMERA},CAMERA_PERM);

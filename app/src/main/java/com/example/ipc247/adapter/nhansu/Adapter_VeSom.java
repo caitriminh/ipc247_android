@@ -46,10 +46,10 @@ public class Adapter_VeSom extends RecyclerView.Adapter<Adapter_VeSom.RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.txtHoTen.setText(data.get(position).getHoTen());
+        holder.txtHoTen.setText(data.get(position).getMaNV() + " - " + data.get(position).getHoTen());
         holder.txtPhongBan.setText(data.get(position).getPhongBan());
-        holder.txtNgayNghi.setText("Ngày về sớm: "+ data.get(position).getNgayNghiText());
-        holder.txtLyDo.setText(data.get(position).getLoaiNghiPhep() + " - " + data.get(position).getGhiChu() );
+        holder.txtNgayNghi.setText("Ngày về sớm: " + data.get(position).getNgayNghiText());
+        holder.txtLyDo.setText(data.get(position).getLoaiNghiPhep() + " - " + data.get(position).getGhiChu());
 
         holder.txtNguoiXacNhan.setText(data.get(position).getNguoiXacNhan());
         holder.txtNguoiDuyet.setText(data.get(position).getNguoiDuyet());

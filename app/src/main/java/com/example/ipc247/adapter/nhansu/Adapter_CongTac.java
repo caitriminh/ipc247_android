@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ipc247.R;
 import com.example.ipc247.model.nhanvien.T_NhanVienNghiPhep;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -46,11 +47,19 @@ public class Adapter_CongTac extends RecyclerView.Adapter<Adapter_CongTac.Recycl
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.txtHoTen.setText(data.get(position).getHoTen());
+        DecimalFormat format = new DecimalFormat("#,##0.00");
+        DecimalFormat format2 = new DecimalFormat("#,##0");
+        Double dblSoNgay = data.get(position).getSoNgayNghi();
+        Double dblPhiCongTac = data.get(position).getChiPhiCongTac();
+
+        holder.txtHoTen.setText(data.get(position).getMaNV() + " - " + data.get(position).getHoTen());
         holder.txtPhongBan.setText(data.get(position).getPhongBan());
-        holder.txtTuNgay.setText("Ngày đi: " + data.get(position).getTuNgayText());
-        holder.txtDenNgay.setText("Ngày về: " + data.get(position).getDenNgayText());
+        holder.txtTuNgay.setText("Đi: " + data.get(position).getTuNgayText());
+        holder.txtDenNgay.setText("Về: " + data.get(position).getDenNgayText());
         holder.txtLyDo.setText(data.get(position).getLoaiNghiPhep() + " - " + data.get(position).getGhiChu());
+        holder.txtLoaiCongTac.setText(data.get(position).getLoaiCongTac());
+        holder.txtPhiCongTac.setText(format2.format(dblPhiCongTac) + " đ");
+        holder.txtSoNgay.setText("Số ngày: " + format.format(dblSoNgay) + " (ngày)");
 
         holder.txtNguoiXacNhan.setText(data.get(position).getNguoiXacNhan());
         holder.txtNguoiDuyet.setText(data.get(position).getNguoiDuyet());
@@ -88,6 +97,15 @@ public class Adapter_CongTac extends RecyclerView.Adapter<Adapter_CongTac.Recycl
 
         @BindView(R.id.txtNguoiXacNhan)
         TextView txtNguoiXacNhan;
+
+        @BindView(R.id.txtLoaiCongTac)
+        TextView txtLoaiCongTac;
+
+        @BindView(R.id.txtPhiCongTac)
+        TextView txtPhiCongTac;
+
+        @BindView(R.id.txtSoNgay)
+        TextView txtSoNgay;
 
         @BindView(R.id.div_congtac)
         LinearLayout div_congtac;

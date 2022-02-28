@@ -98,14 +98,11 @@ public class HoSo2Fragment extends Fragment {
 
     @BindView(R.id.txtPhepNam)
     TextInputEditText txtPhepNam;
-    //
-//    @BindView(R.id.txtIPChamCong)
-//    TextView txtIPChamCong;
+
 //
     Context mContext;
     boolean wfh;
     String ip_chamcong;
-    String IDProduct;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

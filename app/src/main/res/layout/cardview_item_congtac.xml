@@ -3,7 +3,7 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_id"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="250dp"
     android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingLeft="8dp"
-            android:weightSum="1.5">
+            android:weightSum="2.05">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,8 +49,9 @@
                     android:layout_marginEnd="4dp"
                     android:layout_weight="0.45"
                     android:gravity="right|center_vertical"
+                    android:textStyle="bold"
                     android:text="Ngày đi: 21-12-2021 08:00"
-                    android:textSize="15dp" />
+                    android:textSize="13dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -63,10 +64,9 @@
                     android:id="@+id/txtPhongBan"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-
                     android:layout_weight="0.55"
                     android:gravity="left|center_vertical"
-                    android:text="CÁI TRÍ MINH"
+                    android:text="Phòng Kỹ Thuật"
                     android:textSize="14dp" />
 
 
@@ -78,17 +78,40 @@
                     android:layout_weight="0.45"
                     android:gravity="right|center_vertical"
                     android:text="Ngày về: 21-12-2021 08:00"
-                    android:textSize="14dp" />
+                    android:textStyle="bold"
+                    android:textSize="13dp" />
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.2"
-                android:gravity="left|center_vertical"
-                android:text="Lý do:"
-                android:textSize="14dp" />
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.55"
+                    android:gravity="left|center_vertical"
+                    android:text="Lý do:"
+                    android:textStyle="bold"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:id="@+id/txtSoNgay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.45"
+                    android:gravity="right|center_vertical"
+                    android:text="Số ngày: 3 (ngày)"
+                    android:textStyle="bold"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtLyDo"
@@ -99,7 +122,61 @@
                 android:gravity="left|top"
                 android:text="Đi Bình Phước"
                 android:textSize="14dp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="0.5"
+                    android:gravity="left|center_vertical"
+                    android:text="Loại công tác"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtLoaiCongTac"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center_vertical"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.25"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center_vertical"
+                    android:text="Phí công tác"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtPhiCongTac"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center_vertical"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

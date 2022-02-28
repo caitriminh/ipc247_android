@@ -30,7 +30,7 @@ public class Ipc247Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ipc247);
         toolbar = getSupportActionBar();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // load the store fragment by default
@@ -92,50 +92,15 @@ public class Ipc247Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-//            case R.id.btnDonHang:
-//                Intent intent = new Intent(MotorBikerActivity.this, DonHangTempActivity.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.btnLogout:
-//                BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder((Activity) this)
-//                        .setTitle("Xác Nhận")
-//                        .setMessage("Bạn có muốn thoát khỏi phần mềm không?")
-//                        .setCancelable(false)
-//                        .setPositiveButton("Xác Nhận", R.drawable.ic_xacnhan_white, new BottomSheetMaterialDialog.OnClickListener() {
-//                            @Override
-//                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
-//
-//                                SharedPreferences pref = getSharedPreferences("SESSION", MODE_PRIVATE);
-//                                pref.edit().clear().commit();
-//                                Intent intent_loyout = new Intent(MotorBikerActivity.this, LoginActivity.class);
-//                                startActivity(intent_loyout);
-//                                finish();
-//
-//                                dialogInterface.dismiss();
-//                            }
-//                        })
-//                        .setNegativeButton("Đóng", R.drawable.ic_close_white, new BottomSheetMaterialDialog.OnClickListener() {
-//                            @Override
-//                            public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
-//                                dialogInterface.dismiss();
-//                            }
-//                        })
-//                        .build();
-//                mBottomSheetDialog.show();
-//
-//                break;
-//            case android.R.id.home:
-//                finish();
-//                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater findMenuItems = getMenuInflater();
-//        findMenuItems.inflate(R.menu.menu_item, menu);
-//
+
+
         return super.onCreateOptionsMenu(menu);
     }
 

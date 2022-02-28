@@ -16,6 +16,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.nhanvien.ThemTangCaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.nhanvien.ThemCongTacActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.nhanvien.ThemNghiPhepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.nhanvien.ThemVeSomActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.giaoviec.ThemGiaoViecActivity"
             android:exported="false" />
         <activity

@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -63,7 +64,6 @@ public class CongTacActivity extends AppCompatActivity {
 
     ArrayList<T_NhanVienNghiPhep> lstNhanVienNghiPhep;
     Adapter_CongTac adapter;
-    ArrayList<T_MasterData> lstLyDo;
 
     @BindView(R.id.recycleView)
     RecyclerView recycleView;
@@ -75,13 +75,7 @@ public class CongTacActivity extends AppCompatActivity {
     private Unbinder unbinder;
     Context mContext;
 
-    String TuNgay, DenNgay;
-    String strTuNgay, strDenNgay, strGioVe, strGioDi;
-
-    int intLoaiNghiPhep = 0;
-    Integer mMinute = 0, mHour = 0;
-    TextInputEditText txtTuNgay, txtDenNgay, txtLyDo, txtGioDi, txtGioVe, txtGhiChu;
-    Button btnLuu, btnDong;
+    String TuNgay, DenNgay, name = "congtac";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,249 +229,6 @@ public class CongTacActivity extends AppCompatActivity {
 
     }
 
-    public void ThemCongTac() {
-
-        View view_bottom_sheet = LayoutInflater.from(this).inflate(R.layout.bottomsheet_congtac, null);
-        txtTuNgay = view_bottom_sheet.findViewById(R.id.txtTuNgay);
-        txtGioDi = view_bottom_sheet.findViewById(R.id.txtGioDi);
-        txtDenNgay = view_bottom_sheet.findViewById(R.id.txtDenNgay);
-        txtGioVe = view_bottom_sheet.findViewById(R.id.txtGioVe);
-
-        txtLyDo = view_bottom_sheet.findViewById(R.id.txtLyDo);
-        txtGhiChu = view_bottom_sheet.findViewById(R.id.txtGhiChu);
-
-        btnLuu = view_bottom_sheet.findViewById(R.id.btnLuu);
-        btnDong = view_bottom_sheet.findViewById(R.id.btnDong);
-
-        BottomSheetDialog dialog = new BottomSheetDialog(this, R.style.DialogBottomStyle);
-        dialog.setContentView(view_bottom_sheet);
-        dialog.setCancelable(false);
-        dialog.show();
-
-        GetLyDo(txtLyDo);
-
-        txtTuNgay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(mContext,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-
-                                calendar.set(year, month, day);
-                                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                                String strDate = formatter.format(calendar.getTime());
-
-                                txtTuNgay.setText(strDate);
-                                //Lấy giá trị gửi lên server
-                                SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
-                                strTuNgay = formatter2.format(calendar.getTime());
-
-                            }
-                        }, year, month, dayOfMonth);
-
-                datePickerDialog.show();
-            }
-        });
-
-        txtGioDi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar c = Calendar.getInstance();
-                mHour = c.get(Calendar.HOUR_OF_DAY);
-                mMinute = c.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        txtGioDi.setText(hourOfDay + ":" + minute);
-                        strGioDi = hourOfDay + ":" + minute;
-
-                    }
-                }, mHour, mMinute, false);
-                timePickerDialog.show();
-
-            }
-        });
-
-        txtDenNgay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(mContext,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-
-                                calendar.set(year, month, day);
-                                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                                String strDate = formatter.format(calendar.getTime());
-
-                                txtDenNgay.setText(strDate);
-                                //Lấy giá trị gửi lên server
-                                SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
-                                strDenNgay = formatter2.format(calendar.getTime());
-
-                            }
-                        }, year, month, dayOfMonth);
-
-                datePickerDialog.show();
-            }
-        });
-
-        txtGioVe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar c = Calendar.getInstance();
-                mHour = c.get(Calendar.HOUR_OF_DAY);
-                mMinute = c.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        txtGioVe.setText(hourOfDay + ":" + minute);
-                        strGioVe = hourOfDay + ":" + minute;
-
-                    }
-                }, mHour, mMinute, false);
-                timePickerDialog.show();
-
-            }
-        });
-
-        btnLuu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (txtLyDo.getText().toString().equals("")) {
-                    TM_Toast.makeText(mContext, "Bạn vui lòng nhập vào lý do đi công tác.", Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
-                    return;
-                }
-
-                if (txtGhiChu.getText().toString().equals("")) {
-                    TM_Toast.makeText(mContext, "Bạn vui lòng nhập vào nội dung đi công tác.", Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
-                    return;
-                }
-
-                String NgayDangKy = "";
-                Date currentTime = Calendar.getInstance().getTime();
-                DateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
-                NgayDangKy = formatter2.format(currentTime);
-
-                JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("action", "UPDATE");
-                jsonObject.addProperty("id", 0);
-                jsonObject.addProperty("maNV", IPC247.strMaNV);
-                jsonObject.addProperty("ngayDangKy", NgayDangKy);
-                jsonObject.addProperty("tuNgay", strTuNgay + " " + strGioDi);
-                jsonObject.addProperty("denNgay", strDenNgay + " " + strGioVe);
-                jsonObject.addProperty("idLoaiNghiPhep", intLoaiNghiPhep);
-                jsonObject.addProperty("ghiChu", txtGhiChu.getText().toString());
-                jsonObject.addProperty("userName", IPC247.tendangnhap);
-                Call<ResultNghiPhep> call = ApiNghiPhep.apiNghiPhep.UpdateCongTac(jsonObject);
-                call.enqueue(new Callback<ResultNghiPhep>() {
-                    @Override
-                    public void onResponse(Call<ResultNghiPhep> call, Response<ResultNghiPhep> response) {
-                        ResultNghiPhep result = response.body();
-                        if (result == null) {
-                            TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-                            return;
-                        }
-                        if (result.getStatusCode() == 200) {
-                            List<T_NhanVienNghiPhep> lstNghiPhep = result.getDtNghiPhep();
-                            if (lstNghiPhep.size() > 0) {
-                                GetPhanQuyenCongTac();
-                                TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                //đóng dialog
-                                dialog.setCancelable(true);
-                                dialog.dismiss();
-                            }
-
-                        } else {
-                            TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResultNghiPhep> call, Throwable t) {
-                        TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-                    }
-                });
-
-            }
-        });
-
-        btnDong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.setCancelable(true);
-                dialog.dismiss();
-            }
-        });
-    }
-
-    public void GetLyDo(TextView txtLyDo) {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("action", "GET_GROUP");
-        jsonObject.addProperty("group", "LOAINGHIPHEP");
-        Call<ResultMasterData> call = ApiMasterData.apiMasterData.GetMasterData(jsonObject);
-        call.enqueue(new Callback<ResultMasterData>() {
-            @Override
-            public void onResponse(Call<ResultMasterData> call, Response<ResultMasterData> response) {
-                ResultMasterData result = response.body();
-                if (result.getStatusCode() == 200) {
-                    List<T_MasterData> lstLyDos = result.getDtMasterData();
-                    if (lstLyDos.size() > 0) {
-                        lstLyDo = new ArrayList<T_MasterData>();
-                        lstLyDo.addAll(lstLyDos);
-                        txtLyDo.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                                builder.setTitle("Lý do nghỉ phép");
-                                builder.setCancelable(false);
-                                String[] arrayLyDo = new String[lstLyDo.size()];
-                                int i = 0;
-                                for (T_MasterData lydo : lstLyDo) {
-                                    arrayLyDo[i] = String.valueOf(lydo.getValue());
-                                    i++;
-                                }
-
-                                builder.setSingleChoiceItems(arrayLyDo, -1, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        T_MasterData lydo = lstLyDo.get(i);
-                                        txtLyDo.setText(lydo.getValue());
-                                        intLoaiNghiPhep = lydo.getId();
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
-                            }
-
-                        });
-                    }
-
-                } else {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResultMasterData> call, Throwable t) {
-                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-            }
-        });
-    }
-
     private void Delete(final T_NhanVienNghiPhep nhanVienNghiPhep) {
         BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder((Activity) mContext)
                 .setTitle("Xác Nhận")
@@ -505,7 +256,7 @@ public class CongTacActivity extends AppCompatActivity {
                                     if (lstNghiPhep.size() > 0) {
                                         int kq = lstNghiPhep.get(0).getResult();
                                         if (kq == 1) {
-                                            TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
+                                            TM_Toast.makeText(mContext, "Xóa đăng ký công tác thành công.", TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
                                             GetPhanQuyenCongTac();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
@@ -716,6 +467,16 @@ public class CongTacActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 100) {
+                GetPhanQuyenCongTac();
+            }
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -725,7 +486,9 @@ public class CongTacActivity extends AppCompatActivity {
                 TimKiemTheoNgay();
                 break;
             case R.id.btnThem:
-                ThemCongTac();
+                Intent sub = new Intent(mContext, ThemCongTacActivity.class);
+                sub.putExtra("name", name);
+                startActivityForResult(sub, 100);
                 break;
         }
         return super.onOptionsItemSelected(item);

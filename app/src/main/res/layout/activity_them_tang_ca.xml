@@ -33,53 +33,68 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Chọn phòng ban">
+                    android:hint="Họ tên">
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtHoTen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_user"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="Phòng Ban">
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtPhongBan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_phongban"
                         android:drawablePadding="10dp"
-                        android:inputType="none"
+                        android:focusable="false"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Chọn nhóm công việc">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtNhomCongViec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_nhomcongviec_black"
-                        android:drawablePadding="10dp"
-                        android:inputType="none"
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Nội dung công việc">
+                    android:hint="Ngày đăng ký">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCauHinh"
+                        android:id="@+id/txtNgayDangKy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_ghichu_black"
+                        android:drawableStart="@drawable/ic_date_black"
                         android:drawablePadding="10dp"
+                        android:focusable="false"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="Ngày tăng ca">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtNgaytangCa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_date_black"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -92,14 +107,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
-                        android:hint="Ngày bắt đầu">
+                        android:hint="Từ giờ">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtNgayBatDau"
+                            android:id="@+id/txtTuGio"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="4dp"
-                            android:drawableLeft="@drawable/ic_date_black"
+                            android:drawableLeft="@drawable/ic_time_black"
                             android:drawablePadding="10dp"
                             android:focusable="false" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -110,10 +125,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
                         android:layout_weight="0.5"
-                        android:hint="Giờ">
+                        android:hint="Đến giờ">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtGio"
+                            android:id="@+id/txtDenGio"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableLeft="@drawable/ic_time_black"
@@ -123,14 +138,16 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Chọn người nhận việc">
+                    android:hint="Chọn loại tăng ca">
 
                     <AutoCompleteTextView
-                        android:id="@+id/txtNguoiNhanViec"
+                        android:id="@+id/txtLoaiTangCa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_user"
@@ -144,32 +161,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Diễn giải">
+                    android:hint="Ghi chú">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtDienGiai"
+                        android:id="@+id/txtGhiChu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_ghichu_black"
                         android:drawablePadding="10dp"
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Chọn người liên quan">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtNguoiLienQuan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_group_user"
-                        android:drawablePadding="10dp"
-                        android:inputType="none"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,7 +183,7 @@
                 android:weightSum="1">
 
                 <Button
-                    android:id="@+id/btnXacNhan"
+                    android:id="@+id/btnDangKy"
                     style="@style/Button1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -192,7 +191,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="Xác Nhận"
+                    android:text="Đăng Ký"
                     android:textSize="16dp" />
 
             </LinearLayout>

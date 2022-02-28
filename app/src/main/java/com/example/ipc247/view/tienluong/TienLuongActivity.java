@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -22,11 +23,15 @@ import com.example.ipc247.api.ApiPhanQuyen;
 import com.example.ipc247.api.ApiTienLuong;
 import com.example.ipc247.model.login.ResultPhanQuyen;
 import com.example.ipc247.model.login.T_PhanQuyen;
+import com.example.ipc247.model.nhanvien.T_NhanVienNghiPhep;
+import com.example.ipc247.model.nhanvien.T_NhanVienTangCa;
 import com.example.ipc247.model.tienluong.BangLuong_NhanVien;
 import com.example.ipc247.model.tienluong.ResultKyLuong;
 import com.example.ipc247.model.tienluong.ResultTienLuong;
 import com.example.ipc247.model.tienluong.T_KyLuong;
+import com.example.ipc247.system.ClickListener;
 import com.example.ipc247.system.IPC247;
+import com.example.ipc247.system.RecyclerTouchListener;
 import com.example.ipc247.system.TM_Toast;
 import com.google.gson.JsonObject;
 
@@ -69,15 +74,26 @@ public class TienLuongActivity extends AppCompatActivity {
         intThang = calendar.get(Calendar.MONTH) + 1;
         intNam = calendar.get(Calendar.YEAR);
         setTitle("Bảng Lương (" + intThang + '/' + intNam + ')');
-        GetPhanQuyenBangLuong();
+
+        GetBangLuongNhanVien(IPC247.strMaNV);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Làm mới dữ liệu
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+        recycleView.addOnItemTouchListener(new RecyclerTouchListener(mContext, recycleView, new ClickListener() {
             @Override
-            public void onRefresh() {
-                GetPhanQuyenBangLuong();
+            public void onClick(View view, int position) {
+
             }
-        });
+
+            @Override
+            public void onLongClick(View view, int position) {
+                GetChucNang();
+            }
+        }));
+
+        //Làm mới dữ liệu
+        swipeRefreshLayout.setOnRefreshListener(() -> GetPhanQuyenBangLuong());
+
+
     }
 
     @Override
@@ -111,7 +127,7 @@ public class TienLuongActivity extends AppCompatActivity {
                 if (result.getStatusCode() == 200) {
                     List<T_PhanQuyen> lstPhanQuyen = result.getDtPhanQuyen();
                     if (lstPhanQuyen.size() == 0) {
-                        TM_Toast.makeText(mContext, "Không được phép xác nhận nghỉ phép.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
+                        TM_Toast.makeText(mContext, "Không được phép xem bảng lương.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
                         return;
                     }
                     String chophep = lstPhanQuyen.get(0).getXacnhan();
@@ -132,7 +148,6 @@ public class TienLuongActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void GetKyLuong() {
         JsonObject jsonObject = new JsonObject();
@@ -185,6 +200,26 @@ public class TienLuongActivity extends AppCompatActivity {
                 TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
             }
         });
+    }
+
+    public void GetChucNang() {
+        final String[] chucnangs = {"Chỉ mình tôi", "Tất cả", "Đóng"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Chức năng");
+        builder.setCancelable(false);
+        int i = 0;
+
+        builder.setItems(chucnangs, (dialogInterface, i1) -> {
+            String chucnang = chucnangs[i1];
+            dialogInterface.dismiss(); // Close Dialog
+            if (chucnang.equals("Chỉ mình tôi")) {
+                GetBangLuongNhanVien(IPC247.strMaNV);
+            } else if (chucnang.equals("Tất cả")) {
+                GetPhanQuyenBangLuong();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

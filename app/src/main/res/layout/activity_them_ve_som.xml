@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_bottomsheet_owe_solve"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+
+    android:fillViewport="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:padding="16dp"
-    app:behavior_hideable="false"
-    app:behavior_peekHeight="90dp"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+    android:padding="8dp"
+    tools:context=".view.hethong.LoginActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarThumbHorizontal="@null"
+        android:scrollbarThumbVertical="@null">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
             android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,20 +33,37 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Ngày tăng ca">
+                    android:hint="Họ tên">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtNgayTangCa"
+                        android:id="@+id/txtHoTen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_date_black"
+                        android:drawableStart="@drawable/ic_user"
                         android:drawablePadding="10dp"
-                        android:focusable="false" />
+                        android:focusable="false"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="Phòng Ban">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPhongBan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_phongban"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,14 +76,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
-                        android:hint="Từ giờ">
+                        android:hint="Ngày đăng ký">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtTuGio"
+                            android:id="@+id/txtNgayDangKy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="4dp"
-                            android:drawableLeft="@drawable/ic_time_black"
+                            android:drawableLeft="@drawable/ic_date_black"
                             android:drawablePadding="10dp"
                             android:focusable="false" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -73,10 +94,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
                         android:layout_weight="0.5"
-                        android:hint="Đến giờ">
+                        android:hint="Giờ về">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtDenGio"
+                            android:id="@+id/txtGioVe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableLeft="@drawable/ic_time_black"
@@ -87,22 +108,23 @@
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Loại tăng ca">
+                    android:hint="Chọn lý do về sớm">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtLoaiTangCa"
+                    <AutoCompleteTextView
+                        android:id="@+id/txtLyDo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_loaichiphi_black"
+                        android:drawableStart="@drawable/ic_user"
                         android:drawablePadding="10dp"
-                        android:focusable="false" />
+                        android:inputType="none"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -112,45 +134,38 @@
                         android:id="@+id/txtGhiChu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_ghichu_black"
-                        android:drawablePadding="10dp" />
+                        android:drawableStart="@drawable/ic_ghichu_black"
+                        android:drawablePadding="10dp"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btnDangKy"
+                    style="@style/Button1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="Đăng Ký"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
 
-        <Button
-            android:id="@+id/btnLuu"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Lưu"
-            android:textColor="@color/white"
-            app:icon="@drawable/ic_save_white"
-            app:iconGravity="textStart" />
-
-        <Button
-            android:id="@+id/btnDong"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/colorAccent"
-            android:text="Đóng"
-            android:textColor="@color/white"
-            app:icon="@drawable/ic_close_white"
-            app:iconGravity="textStart" />
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

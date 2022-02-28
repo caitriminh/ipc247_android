@@ -46,7 +46,7 @@ public class Adapter_NhanVienTangCa extends RecyclerView.Adapter<Adapter_NhanVie
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.txtHoTen.setText(data.get(position).getHoTen());
+        holder.txtHoTen.setText(data.get(position).getMaNV() + " - " + data.get(position).getHoTen());
         holder.txtNgayTangCa.setText("Ngày tăng ca: " + data.get(position).getNgayTangCaText());
         holder.txtTuGio.setText("Từ " + data.get(position).getTuGioText() + " - " + data.get(position).getDenGioText());
         holder.txtPhongBan.setText(data.get(position).getPhongBan());

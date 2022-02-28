@@ -47,10 +47,11 @@ public class Adapter_NghiPhep extends RecyclerView.Adapter<Adapter_NghiPhep.Recy
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.txtHoTen.setText(data.get(position).getHoTen());
+        holder.txtHoTen.setText(data.get(position).getMaNV() + " - " + data.get(position).getHoTen());
         holder.txtPhongBan.setText(data.get(position).getPhongBan());
-        holder.txtNgayNghi.setText("Ngày nghỉ: "+ data.get(position).getNgayNghiText());
-        holder.txtLyDo.setText(data.get(position).getLoaiNghiPhep() + " - " + data.get(position).getGhiChu() );
+        holder.txtTuNgay.setText("Từ ngày: " + data.get(position).getTuNgayText());
+        holder.txtDenNgay.setText("Đến ngày: " + data.get(position).getDenNgayText());
+        holder.txtLyDo.setText(data.get(position).getLoaiNghiPhep() + " - " + data.get(position).getGhiChu());
 
         DecimalFormat format = new DecimalFormat("#,##0.0");
         Double dblSoNgayNghi = data.get(position).getSoNgayNghi();
@@ -78,8 +79,11 @@ public class Adapter_NghiPhep extends RecyclerView.Adapter<Adapter_NghiPhep.Recy
         @BindView(R.id.txtPhongBan)
         TextView txtPhongBan;
 
-        @BindView(R.id.txtNgayNghi)
-        TextView txtNgayNghi;
+        @BindView(R.id.txtTuNgay)
+        TextView txtTuNgay;
+
+        @BindView(R.id.txtDenNgay)
+        TextView txtDenNgay;
 
         @BindView(R.id.txtLyDo)
         TextView txtLyDo;

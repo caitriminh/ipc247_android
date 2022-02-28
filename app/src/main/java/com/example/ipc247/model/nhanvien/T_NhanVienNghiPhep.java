@@ -64,6 +64,13 @@ public class T_NhanVienNghiPhep {
     @Expose
     private String denNgayText;
 
+    @SerializedName("loaiCongTac")
+    @Expose
+    private String loaiCongTac;
+
+    @SerializedName("chiPhiCongTac")
+    @Expose
+    private double chiPhiCongTac;
 
     public String getMaNV() {
         return maNV;
@@ -183,5 +190,21 @@ public class T_NhanVienNghiPhep {
 
     public void setTuNgayText(String tuNgayText) {
         this.tuNgayText = tuNgayText;
+    }
+
+    public double getChiPhiCongTac() {
+        return chiPhiCongTac;
+    }
+
+    public void setChiPhiCongTac(double chiPhiCongTac) {
+        this.chiPhiCongTac = chiPhiCongTac;
+    }
+
+    public String getLoaiCongTac() {
+        return loaiCongTac;
+    }
+
+    public void setLoaiCongTac(String loaiCongTac) {
+        this.loaiCongTac = loaiCongTac;
     }
 }

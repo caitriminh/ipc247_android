@@ -20,9 +20,8 @@ import java.util.concurrent.Future;
 
 public class IPC247 {
 
-
-    public static String BASE_URL_IPC = "http://167.86.99.178:5001/";
-
+    public static String BASE_URL_IPC = "http://194.233.92.141:5001/";
+    //public static String BASE_URL_IPC = "http://167.86.99.178:5001/";
     public static T_User objUser;
     public static T_Menu objMenu;
     public static String tendangnhap = "ADMIN";

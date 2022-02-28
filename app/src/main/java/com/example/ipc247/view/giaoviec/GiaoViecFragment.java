@@ -54,6 +54,7 @@ import com.example.ipc247.system.RecyclerTouchListener;
 import com.example.ipc247.system.TM_Toast;
 import com.example.ipc247.view.bsc.ChiTietBSCNhanVienActivity;
 import com.example.ipc247.view.hethong.LoginActivity;
+import com.example.ipc247.view.kho.BarcodeScanActivity;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.gson.JsonObject;
@@ -91,6 +92,7 @@ public class GiaoViecFragment extends Fragment {
     Context mContext;
     String TuNgay, DenNgay;
     Integer timkiem = 1;
+    String name = "a";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -235,6 +237,57 @@ public class GiaoViecFragment extends Fragment {
         mBottomSheetDialog.show();
     }
 
+    private void Xoa(final T_GiaoViec giaoViec) {
+        BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder((Activity) mContext)
+                .setTitle("Xác Nhận")
+                .setMessage("Bạn có muốn xóa không?")
+                .setCancelable(false)
+                .setPositiveButton("Xác Nhận", R.drawable.ic_xacnhan_white, new BottomSheetMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+
+                        JsonObject jsonObject = new JsonObject();
+                        jsonObject.addProperty("action", "DELETE");
+                        jsonObject.addProperty("id", giaoViec.getId());
+                        jsonObject.addProperty("userName", IPC247.tendangnhap);
+
+                        Call<ResultGiaoViec> call = ApiGiaoViec.apiGiaoViec.HoanThanh(jsonObject);
+                        call.enqueue(new Callback<ResultGiaoViec>() {
+                            @Override
+                            public void onResponse(Call<ResultGiaoViec> call, Response<ResultGiaoViec> response) {
+                                ResultGiaoViec result = response.body();
+                                if (result == null) {
+                                    TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
+                                    return;
+                                }
+                                if (result.getStatusCode() == 200) {
+                                    List<T_GiaoViec> lstGiaoViec = result.getDtGiaoViec();
+                                    if (lstGiaoViec.size() > 0) {
+                                        TM_Toast.makeText(mContext, lstGiaoViec.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
+                                        GetGiaoViec();
+                                    }
+                                } else {
+                                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResultGiaoViec> call, Throwable t) {
+                                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
+                            }
+                        });
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("Đóng", R.drawable.ic_close_white, new BottomSheetMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
+        mBottomSheetDialog.show();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -243,8 +296,9 @@ public class GiaoViecFragment extends Fragment {
                 TimKiemTheoNgay();
                 break;
             case R.id.btnThem:
-                Intent intent2 = new Intent(mContext, ThemGiaoViecActivity.class);
-                startActivity(intent2);
+                Intent sub = new Intent(mContext, ThemGiaoViecActivity.class);
+                sub.putExtra("name", name);
+                startActivityForResult(sub, 100);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -287,7 +341,7 @@ public class GiaoViecFragment extends Fragment {
     }
 
     public void GetChucNang(T_GiaoViec giaoViec, int position) {
-        final String[] chucnangs = {"Hoàn Thành", "Tạm Dừng", "Xóa", "Sửa", "Thoát"};
+        final String[] chucnangs = {"Hoàn Thành", "Tạm Dừng", "Xóa", "Sửa", "Đánh giá", "Thoát"};
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("Chức năng");
         builder.setCancelable(false);
@@ -300,8 +354,8 @@ public class GiaoViecFragment extends Fragment {
                 dialogInterface.dismiss(); // Close Dialog
                 if (chucnang.equals("Hoàn Thành")) {
                     HoanThanhGiaoViec(giaoViec);
-                } else if (chucnang.equals("Xác nhận")) {
-                    //  XacNhan(nhanVienNghiPhep);
+                } else if (chucnang.equals("Xóa")) {
+                    Xoa(giaoViec);
                 } else if (chucnang.equals("Duyệt")) {
                     // GetPhanQuyenDuyet(nhanVienNghiPhep);
                 }
@@ -344,5 +398,15 @@ public class GiaoViecFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 100) {
+                GetGiaoViec();
+            }
+        }
     }
 }

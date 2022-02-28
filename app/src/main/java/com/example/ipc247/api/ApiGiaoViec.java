@@ -4,6 +4,7 @@ import static com.example.ipc247.system.IPC247.BASE_URL_IPC;
 
 import com.example.ipc247.model.bsc.ResultBSC_NhanVien;
 import com.example.ipc247.model.giaoviec.ResultGiaoViec;
+import com.example.ipc247.model.giaoviec.ResultNhomCongViec;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -33,5 +34,11 @@ public interface ApiGiaoViec {
     @POST("TroGiup/UpdateGiaoViec")
     Call<ResultGiaoViec> HoanThanh(@Body JsonObject body);
 
+    @Headers("Content-Type: application/json")
+    @POST("TroGiup/UpdateGiaoViec")
+    Call<ResultGiaoViec> Update(@Body JsonObject body);
 
+    @Headers("Content-Type: application/json")
+    @POST("TroGiup/GetNhomCongViec")
+    Call<ResultNhomCongViec> GetNhomCongViec(@Body JsonObject body);
 }
