@@ -81,6 +81,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/drawable/ic_user_black.xml" value="0.205" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/drawable/round_outline.xml" value="0.219" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bao_hanh.xml" value="0.333786231884058" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bao_hanh2.xml" value="0.25885416666666666" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bsc_nhanvien.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bsc_phongban.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bsc_vitri_congviec.xml" value="0.333786231884058" />
@@ -89,6 +90,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_detail_bsc_nhanvien.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_detail_bsc_phongban.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_detail_bsc_vitri_congviec.xml" value="0.29635416666666664" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_group.xml" value="0.25885416666666666" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_ipc247.xml" value="0.3446557971014493" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_ipc247_2.xml" value="0.33" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_login.xml" value="0.333786231884058" />
@@ -133,6 +135,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/fragment_hoso.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/fragment_hoso2.xml" value="0.28442028985507245" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/fragment_menu.xml" value="0.3446557971014493" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/item_row.xml" value="0.25885416666666666" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/item_row_bsc_phongban.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/item_row_bsc_vitri_congviec.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/item_row_cham_cong.xml" value="0.333786231884058" />
@@ -141,6 +144,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/style.xml" value="0.4233576642335766" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_item_add.xml" value="0.3458333333333333" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_item_date.xml" value="0.2972222222222222" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_item_logout.xml" value="0.25885416666666666" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_item_xacnhan.xml" value="0.3625" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_search_item.xml" value="0.3625" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/navigation.xml" value="0.3567708333333333" />

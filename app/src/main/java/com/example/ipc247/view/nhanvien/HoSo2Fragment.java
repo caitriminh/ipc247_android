@@ -38,6 +38,8 @@ import com.example.ipc247.system.FTP_CMD;
 import com.example.ipc247.system.IPC247;
 import com.example.ipc247.system.ImagePickerActivity;
 import com.example.ipc247.system.TM_Toast;
+import com.example.ipc247.view.bsc.BSCNhanVienActivity;
+import com.example.ipc247.view.groupdemo.GroupActivity;
 import com.example.ipc247.view.hethong.LoginActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.JsonObject;
@@ -402,7 +404,14 @@ public class HoSo2Fragment extends Fragment {
             case R.id.btnLogout:
                 Logout();
                 break;
+
+            case R.id.btnChucNang:
+                Intent intent = new Intent(mContext, GroupActivity.class);
+                startActivity(intent);
+                break;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 

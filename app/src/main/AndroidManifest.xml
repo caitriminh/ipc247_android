@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.groupdemo.GroupActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.nhanvien.ThemTangCaActivity"
             android:exported="false" />
         <activity
