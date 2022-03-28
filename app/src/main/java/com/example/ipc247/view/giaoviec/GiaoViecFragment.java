@@ -150,6 +150,7 @@ public class GiaoViecFragment extends Fragment {
         jsonObject.addProperty("fromDate", TuNgay);
         jsonObject.addProperty("toDate", DenNgay);
         jsonObject.addProperty("timKiem", timkiem);
+        jsonObject.addProperty("userName", IPC247.tendangnhap);
         Call<ResultGiaoViec> call = ApiGiaoViec.apiGiaoViec.GetGiaoViec(jsonObject);
         call.enqueue(new Callback<ResultGiaoViec>() {
             @Override
@@ -337,7 +338,6 @@ public class GiaoViecFragment extends Fragment {
                 GetGiaoViec();
             }
         });
-
     }
 
     public void GetChucNang(T_GiaoViec giaoViec, int position) {

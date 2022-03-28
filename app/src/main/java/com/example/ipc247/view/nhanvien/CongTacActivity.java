@@ -92,7 +92,7 @@ public class CongTacActivity extends AppCompatActivity {
         TuNgay = formatter1.format(currentTime);
         DenNgay = formatter2.format(currentTime);
 
-        GetPhanQuyenCongTac();
+        GetCongTac();
         recycleView.addOnItemTouchListener(new RecyclerTouchListener(mContext, recycleView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -109,55 +109,17 @@ public class CongTacActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                GetPhanQuyenCongTac();
+                GetCongTac();
             }
         });
     }
 
-    private void GetPhanQuyenCongTac() {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("action", "GET_BY_ID");
-        jsonObject.addProperty("idNhomQuyen", IPC247.IdNhomQuyen);
-        jsonObject.addProperty("mamenu", "NS015");
-        Call<ResultPhanQuyen> call = ApiPhanQuyen.apiPhanQuyen.GetPhanQuyen(jsonObject);
-        call.enqueue(new Callback<ResultPhanQuyen>() {
-            @Override
-            public void onResponse(Call<ResultPhanQuyen> call, Response<ResultPhanQuyen> response) {
-                ResultPhanQuyen result = response.body();
-                if (result == null) {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                    return;
-                }
-                if (result.getStatusCode() == 200) {
-                    List<T_PhanQuyen> lstPhanQuyen = result.getDtPhanQuyen();
-                    if (lstPhanQuyen.size() == 0) {
-                        return;
-                    }
-                    String chophep = lstPhanQuyen.get(0).getChophep();
-                    if (chophep.equals("OK")) {
-                        GetCongTac(1);
-                    } else {
-                        GetCongTac(2);
-                    }
 
-                } else {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResultPhanQuyen> call, Throwable t) {
-                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-            }
-        });
-    }
-
-    private void GetCongTac(int TimKiem) {
+    private void GetCongTac() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("action", "GET_DATA_NGAY_DANGKY_CONGTAC");
         jsonObject.addProperty("fromDate", TuNgay);
         jsonObject.addProperty("toDate", DenNgay);
-        jsonObject.addProperty("timKiem", TimKiem);
         jsonObject.addProperty("maNV", IPC247.strMaNV);
 
         Call<ResultNghiPhep> call = ApiNghiPhep.apiNghiPhep.NghiPhep(jsonObject);
@@ -223,7 +185,7 @@ public class CongTacActivity extends AppCompatActivity {
                 TuNgay = formatter.format(calendarStart.getTime());
                 DenNgay = formatter.format(calendarEnd.getTime());
 
-                GetPhanQuyenCongTac();
+                GetCongTac();
             }
         });
 
@@ -257,7 +219,7 @@ public class CongTacActivity extends AppCompatActivity {
                                         int kq = lstNghiPhep.get(0).getResult();
                                         if (kq == 1) {
                                             TM_Toast.makeText(mContext, "Xóa đăng ký công tác thành công.", TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenCongTac();
+                                            GetCongTac();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -315,7 +277,7 @@ public class CongTacActivity extends AppCompatActivity {
                                         int Kq = lstNghiPhep.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenCongTac();
+                                            GetCongTac();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -373,7 +335,7 @@ public class CongTacActivity extends AppCompatActivity {
                                         int Kq = lstNghiPhep.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenCongTac();
+                                            GetCongTac();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -471,7 +433,7 @@ public class CongTacActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 100) {
-                GetPhanQuyenCongTac();
+                GetCongTac();
             }
         }
     }

@@ -103,7 +103,7 @@ public class NghiPhepActivity extends AppCompatActivity {
         TuNgay = formatter1.format(currentTime);
         DenNgay = formatter2.format(lastDayOfMonth);
 
-        GetPhanQuyenNgayNghiPhep();
+        GetNgayNghi();
         recycleView.addOnItemTouchListener(new RecyclerTouchListener(mContext, recycleView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -117,59 +117,14 @@ public class NghiPhepActivity extends AppCompatActivity {
             }
         }));
         //Làm mới dữ liệu
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                GetPhanQuyenNgayNghiPhep();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(() -> GetNgayNghi());
     }
 
-    private void GetPhanQuyenNgayNghiPhep() {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("action", "GET_BY_ID");
-        jsonObject.addProperty("idNhomQuyen", IPC247.IdNhomQuyen);
-        jsonObject.addProperty("mamenu", "NS015");
-        Call<ResultPhanQuyen> call = ApiPhanQuyen.apiPhanQuyen.GetPhanQuyen(jsonObject);
-        call.enqueue(new Callback<ResultPhanQuyen>() {
-            @Override
-            public void onResponse(Call<ResultPhanQuyen> call, Response<ResultPhanQuyen> response) {
-                ResultPhanQuyen result = response.body();
-                if (result == null) {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                    return;
-                }
-                if (result.getStatusCode() == 200) {
-                    List<T_PhanQuyen> lstPhanQuyen = result.getDtPhanQuyen();
-                    if (lstPhanQuyen.size() == 0) {
-                        TM_Toast.makeText(mContext, "Không được phép xác nhận nghỉ phép.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                        return;
-                    }
-                    String chophep = lstPhanQuyen.get(0).getChophep();
-                    if (chophep.equals("OK")) {
-                        GetNgayNghi(1);
-                    } else {
-                        GetNgayNghi(2);
-                    }
-
-                } else {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResultPhanQuyen> call, Throwable t) {
-                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-            }
-        });
-    }
-
-    private void GetNgayNghi(int TimKiem) {
+    private void GetNgayNghi() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("action", "GET_DATA_NGAY_DANGKY");
         jsonObject.addProperty("fromDate", TuNgay);
         jsonObject.addProperty("toDate", DenNgay);
-        jsonObject.addProperty("timKiem", TimKiem);
         jsonObject.addProperty("maNV", IPC247.strMaNV);
 
         Call<ResultNghiPhep> call = ApiNghiPhep.apiNghiPhep.NghiPhep(jsonObject);
@@ -235,7 +190,7 @@ public class NghiPhepActivity extends AppCompatActivity {
                 TuNgay = formatter.format(calendarStart.getTime());
                 DenNgay = formatter.format(calendarEnd.getTime());
 
-                GetPhanQuyenNgayNghiPhep();
+                GetNgayNghi();
             }
         });
 
@@ -269,7 +224,7 @@ public class NghiPhepActivity extends AppCompatActivity {
                                         int kq = lstNghiPhep.get(0).getResult();
                                         if (kq == 1) {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenNgayNghiPhep();
+                                            GetNgayNghi();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -327,7 +282,7 @@ public class NghiPhepActivity extends AppCompatActivity {
                                         int Kq = lstNghiPhep.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenNgayNghiPhep();
+                                            GetNgayNghi();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -385,7 +340,7 @@ public class NghiPhepActivity extends AppCompatActivity {
                                         int Kq = lstNghiPhep.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenNgayNghiPhep();
+                                            GetNgayNghi();
                                         } else {
                                             TM_Toast.makeText(mContext, lstNghiPhep.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -460,18 +415,15 @@ public class NghiPhepActivity extends AppCompatActivity {
         builder.setCancelable(false);
         int i = 0;
 
-        builder.setItems(chucnangs, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                String chucnang = chucnangs[i];
-                dialogInterface.dismiss(); // Close Dialog
-                if (chucnang.equals("Xóa")) {
-                    Delete(nhanVienNghiPhep);
-                } else if (chucnang.equals("Xác nhận")) {
-                    XacNhan(nhanVienNghiPhep);
-                } else if (chucnang.equals("Duyệt")) {
-                    GetPhanQuyenDuyet(nhanVienNghiPhep);
-                }
+        builder.setItems(chucnangs, (dialogInterface, i1) -> {
+            String chucnang = chucnangs[i1];
+            dialogInterface.dismiss(); // Close Dialog
+            if (chucnang.equals("Xóa")) {
+                Delete(nhanVienNghiPhep);
+            } else if (chucnang.equals("Xác nhận")) {
+                XacNhan(nhanVienNghiPhep);
+            } else if (chucnang.equals("Duyệt")) {
+                GetPhanQuyenDuyet(nhanVienNghiPhep);
             }
         });
         AlertDialog dialog = builder.create();

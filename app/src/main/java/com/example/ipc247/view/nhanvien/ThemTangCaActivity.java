@@ -97,7 +97,7 @@ public class ThemTangCaActivity extends AppCompatActivity {
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
             int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-            DatePickerDialog datePickerDialog = new DatePickerDialog(mContext,
+            DatePickerDialog datePickerDialog = new DatePickerDialog(mContext,AlertDialog.THEME_DEVICE_DEFAULT_DARK,
                     (datePicker, year12, month12, day) -> {
 
                         calendar.set(year12, month12, day);
@@ -119,15 +119,12 @@ public class ThemTangCaActivity extends AppCompatActivity {
             mHour = c.get(Calendar.HOUR_OF_DAY);
             mMinute = c.get(Calendar.MINUTE);
 
-            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    String gio, phut;
-                    gio = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
-                    phut = minute < 10 ? "0" + minute : "" + minute;
-                    txtTuGio.setText(gio + ":" + phut);
-                    strTuGio = hourOfDay + ":" + minute;
-                }
+            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext,AlertDialog.THEME_DEVICE_DEFAULT_DARK, (view1, hourOfDay, minute) -> {
+                String gio, phut;
+                gio = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
+                phut = minute < 10 ? "0" + minute : "" + minute;
+                txtTuGio.setText(gio + ":" + phut);
+                strTuGio = hourOfDay + ":" + minute;
             }, mHour, mMinute, false);
             timePickerDialog.show();
 
@@ -138,15 +135,12 @@ public class ThemTangCaActivity extends AppCompatActivity {
             mHour = c.get(Calendar.HOUR_OF_DAY);
             mMinute = c.get(Calendar.MINUTE);
 
-            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    String gio, phut;
-                    gio = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
-                    phut = minute < 10 ? "0" + minute : "" + minute;
-                    txtDenGio.setText(gio + ":" + phut);
-                    strDenGio = hourOfDay + ":" + minute;
-                }
+            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, AlertDialog.THEME_DEVICE_DEFAULT_DARK, (view12, hourOfDay, minute) -> {
+                String gio, phut;
+                gio = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
+                phut = minute < 10 ? "0" + minute : "" + minute;
+                txtDenGio.setText(gio + ":" + phut);
+                strDenGio = hourOfDay + ":" + minute;
             }, mHour, mMinute, false);
             timePickerDialog.show();
 
@@ -170,7 +164,7 @@ public class ThemTangCaActivity extends AppCompatActivity {
                 if (result.getStatusCode() == 200) {
                     List<T_LoaiTangCa> lstLoaiTangCaTemp = result.getDtLoaiTangCa();
                     if (lstLoaiTangCaTemp.size() > 0) {
-                        lstLoaiTangCa = new ArrayList<T_LoaiTangCa>();
+                        lstLoaiTangCa = new ArrayList<>();
                         lstLoaiTangCa.addAll(lstLoaiTangCaTemp);
 
                         String[] arrayLyDo = new String[lstLoaiTangCa.size()];

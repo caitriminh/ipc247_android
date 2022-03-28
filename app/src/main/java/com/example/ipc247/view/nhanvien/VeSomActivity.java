@@ -132,9 +132,9 @@ public class VeSomActivity extends AppCompatActivity {
                     }
                     String chophep = lstPhanQuyen.get(0).getChophep();
                     if (chophep.equals("OK")) {
-                        GetVeSom(1);
+                        GetVeSom();
                     } else {
-                        GetVeSom(2);
+                        GetVeSom();
                     }
 
                 } else {
@@ -149,12 +149,11 @@ public class VeSomActivity extends AppCompatActivity {
         });
     }
 
-    private void GetVeSom(int TimKiem) {
+    private void GetVeSom() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("action", "GET_DATA_NGAY_DANGKY_VESOM");
         jsonObject.addProperty("fromDate", TuNgay);
         jsonObject.addProperty("toDate", DenNgay);
-        jsonObject.addProperty("timKiem", TimKiem);
         jsonObject.addProperty("maNV", IPC247.strMaNV);
 
         Call<ResultNghiPhep> call = ApiNghiPhep.apiNghiPhep.NghiPhep(jsonObject);

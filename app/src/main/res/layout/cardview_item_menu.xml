@@ -23,21 +23,6 @@
             android:background="#ffffff"
             android:scaleType="centerCrop" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtMenu"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_gravity="center|center_horizontal"-->
-<!--            android:ellipsize="end"-->
-<!--            android:gravity="center|center_horizontal"-->
-<!--            android:maxLines="1"-->
-<!--            android:scrollHorizontally="false"-->
-<!--            android:singleLine="true"-->
-<!--            android:text="AIR BLADE"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textColor="#2d2d2d"-->
-<!--            android:textSize="13sp" />-->
 
 
     </LinearLayout>

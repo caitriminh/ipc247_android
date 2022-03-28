@@ -96,7 +96,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
         TuNgay = formatter1.format(currentTime);
         DenNgay = formatter2.format(currentTime);
 
-        GetPhanQuyenTangCa();
+        GetNhanVienTangCa();
         recycleView.addOnItemTouchListener(new RecyclerTouchListener(mContext, recycleView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -110,59 +110,17 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
             }
         }));
         //Làm mới dữ liệu
-        swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                GetPhanQuyenTangCa();
-            }
-        });
+        swiperefresh.setOnRefreshListener(() -> GetNhanVienTangCa());
     }
 
-    private void GetPhanQuyenTangCa() {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("action", "GET_BY_ID");
-        jsonObject.addProperty("idNhomQuyen", IPC247.IdNhomQuyen);
-        jsonObject.addProperty("mamenu", "NS019");
-        Call<ResultPhanQuyen> call = ApiPhanQuyen.apiPhanQuyen.GetPhanQuyen(jsonObject);
-        call.enqueue(new Callback<ResultPhanQuyen>() {
-            @Override
-            public void onResponse(Call<ResultPhanQuyen> call, Response<ResultPhanQuyen> response) {
-                ResultPhanQuyen result = response.body();
-                if (result == null) {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                    return;
-                }
-                if (result.getStatusCode() == 200) {
-                    List<T_PhanQuyen> lstPhanQuyen = result.getDtPhanQuyen();
-                    if (lstPhanQuyen.size() == 0) {
-                        return;
-                    }
-                    String chophep = lstPhanQuyen.get(0).getChophep();
-                    if (chophep.equals("OK")) {
-                        GetNhanVienTangCa(1);
-                    } else {
-                        GetNhanVienTangCa(2);
-                    }
 
-                } else {
-                    TM_Toast.makeText(mContext, "Không tìm thấy dữ liệu.", TM_Toast.LENGTH_SHORT, TM_Toast.WARNING, false).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResultPhanQuyen> call, Throwable t) {
-                TM_Toast.makeText(mContext, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
-            }
-        });
-    }
-
-    private void GetNhanVienTangCa(int Timkiem) {
+    private void GetNhanVienTangCa() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("action", "GET_DATA");
         jsonObject.addProperty("fromDate", TuNgay);
         jsonObject.addProperty("toDate", DenNgay);
         jsonObject.addProperty("maNV", IPC247.strMaNV);
-        jsonObject.addProperty("timKiem", Timkiem);
         Call<ResultNhanVienTangCa> call = ApiNhanVienTangCa.apiNhanVienTangCa.getNhanVienTangCa(jsonObject);
         call.enqueue(new Callback<ResultNhanVienTangCa>() {
             @Override
@@ -264,7 +222,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
 
                 TuNgay = formatter.format(calendarStart.getTime());
                 DenNgay = formatter.format(calendarEnd.getTime());
-                GetPhanQuyenTangCa();
+                GetNhanVienTangCa();
             }
         });
     }
@@ -297,7 +255,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
                                         int kq = lstTangCaTemps.get(0).getResult();
                                         if (kq == 1) {
                                             TM_Toast.makeText(mContext, lstTangCaTemps.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenTangCa();
+                                            GetNhanVienTangCa();
                                         } else {
                                             TM_Toast.makeText(mContext, lstTangCaTemps.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -381,7 +339,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
                                         int Kq = lstTangCa.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstTangCa.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenTangCa();
+                                            GetNhanVienTangCa();
                                         } else {
                                             TM_Toast.makeText(mContext, lstTangCa.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -439,7 +397,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
                                         int Kq = lstTangCa.get(0).getResult();
                                         if (Kq == 1) {
                                             TM_Toast.makeText(mContext, lstTangCa.get(0).getMessage(), TM_Toast.LENGTH_SHORT, TM_Toast.SUCCESS, false).show();
-                                            GetPhanQuyenTangCa();
+                                            GetNhanVienTangCa();
                                         } else {
                                             TM_Toast.makeText(mContext, lstTangCa.get(0).getMessage(), TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                                         }
@@ -492,7 +450,7 @@ public class NhanVienTangCaActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 100) {
-                GetPhanQuyenTangCa();
+                GetNhanVienTangCa();
             }
         }
     }

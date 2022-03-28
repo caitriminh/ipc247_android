@@ -97,7 +97,7 @@ public class ThemVeSomActivity extends AppCompatActivity {
             mHour = c.get(Calendar.HOUR_OF_DAY);
             mMinute = c.get(Calendar.MINUTE);
 
-            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, (view1, hourOfDay, minute) -> {
+            TimePickerDialog timePickerDialog = new TimePickerDialog(mContext, AlertDialog.THEME_DEVICE_DEFAULT_DARK, (view1, hourOfDay, minute) -> {
                 String gio, phut;
                 gio = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
                 phut = minute < 10 ? "0" + minute : "" + minute;
