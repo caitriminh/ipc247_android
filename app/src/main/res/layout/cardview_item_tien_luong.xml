@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_id"
     android:layout_width="match_parent"
-    android:layout_height="680dp"
+    android:layout_height="720dp"
     android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingLeft="8dp"
-            android:weightSum="23">
+            android:weightSum="27">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -180,8 +180,8 @@
                     android:layout_weight="0.25"
                     android:gravity="left|center_vertical"
                     android:text="- Công thực tế"
-                    android:textStyle="bold"
-                    android:textSize="14dp" />
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtCongThucTe"
@@ -199,8 +199,8 @@
                     android:layout_weight="0.28"
                     android:gravity="left|center_vertical"
                     android:text="- Lương thực tế"
-                    android:textStyle="bold"
-                    android:textSize="14dp" />
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtLuongThucTe"
@@ -497,8 +497,6 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="14dp"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -617,9 +615,9 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.3"
                     android:gravity="left|center_vertical"
-                    android:text="Đồng phục, DL, khám bệnh..."
+                    android:text="Đồng phục, DL,..."
                     android:textSize="14dp" />
 
                 <TextView
@@ -627,7 +625,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.2"
                     android:gravity="right|center_vertical"
                     android:textSize="14dp"
                     android:textStyle="bold" />
@@ -676,6 +674,8 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="14dp"
                     android:textStyle="bold" />
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -741,8 +741,6 @@
 
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -798,9 +796,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:gravity="left|center_vertical"
-                    android:text="THỰC LÃNH"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16dp"
+                    android:text="+ Thực nhận chưa KPI"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -810,10 +807,142 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="0.5"
                     android:gravity="right|center_vertical"
-                    android:textSize="16dp"
                     android:textColor="@color/colorAccent"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center_vertical"
+                    android:text="Hệ số lương KPI"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtXepLoai"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center_vertical"
+                    android:text="Xếp loại :A"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="left|center_vertical"
+                    android:text="KPI (%)"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txtKPI"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.25"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="left|center_vertical"
+                    android:text="Hệ số lương"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtHeSoLuong"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.25"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center_vertical"
+                    android:text="Lương KPI"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txtLuongKPI2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="left|center_vertical"
+                    android:text="THỰC LÃNH"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtThucNhan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
 

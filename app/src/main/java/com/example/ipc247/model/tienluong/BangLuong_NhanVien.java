@@ -164,6 +164,26 @@ public class BangLuong_NhanVien {
     @Expose
     private double luongLeTet;
 
+    @SerializedName("luongHS_KPI")
+    @Expose
+    private double luongHS_KPI;
+
+    @SerializedName("thucLanhSauKPI")
+    @Expose
+    private double thucLanhSauKPI;
+
+    @SerializedName("kpi")
+    @Expose
+    private double kpi;
+
+    @SerializedName("xepLoai")
+    @Expose
+    private String xepLoai;
+
+    @SerializedName("heSoLuong")
+    @Expose
+    private double heSoLuong;
+
     public String getTinhTrang() {
         return tinhTrang;
     }
@@ -483,5 +503,45 @@ public class BangLuong_NhanVien {
 
     public void setLuongLeTet(double luongLeTet) {
         this.luongLeTet = luongLeTet;
+    }
+
+    public double getHeSoLuong() {
+        return heSoLuong;
+    }
+
+    public void setHeSoLuong(double heSoLuong) {
+        this.heSoLuong = heSoLuong;
+    }
+
+    public double getKpi() {
+        return kpi;
+    }
+
+    public void setKpi(double kpi) {
+        this.kpi = kpi;
+    }
+
+    public double getLuongHS_KPI() {
+        return luongHS_KPI;
+    }
+
+    public void setLuongHS_KPI(double luongHS_KPI) {
+        this.luongHS_KPI = luongHS_KPI;
+    }
+
+    public double getThucLanhSauKPI() {
+        return thucLanhSauKPI;
+    }
+
+    public void setThucLanhSauKPI(double thucLanhSauKPI) {
+        this.thucLanhSauKPI = thucLanhSauKPI;
+    }
+
+    public String getXepLoai() {
+        return xepLoai;
+    }
+
+    public void setXepLoai(String xepLoai) {
+        this.xepLoai = xepLoai;
     }
 }

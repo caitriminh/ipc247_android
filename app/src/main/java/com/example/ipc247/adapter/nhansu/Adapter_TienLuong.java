@@ -88,6 +88,11 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
         Double dblCongLeTet = data.get(position).getCongLeTet();
         Double dblLuongLeTet = data.get(position).getLuongLeTet();
 
+        Double dblHeSoLuong = data.get(position).getHeSoLuong();
+        Double dblKPI = data.get(position).getKpi();
+        Double dblLuongKPI2 = data.get(position).getLuongHS_KPI();
+        Double dblThucNhan = data.get(position).getThucLanhSauKPI();
+
         holder.txtHoTen.setText(data.get(position).getMaNV() + " - " + data.get(position).getHoTen() + " (" + data.get(position).getNgayCongChuan() + ")");
         holder.txtPhongBan.setText(data.get(position).getPhongBan() + " / " + data.get(position).getChucVu());
         holder.txtBacLuong.setText("Bậc lương: " + data.get(position).getBacLuong().toString());
@@ -129,6 +134,13 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
 
         holder.txtCongLeTet.setText(format2.format(dblCongLeTet));
         holder.txtLuongLeTet.setText(format1.format(dblLuongLeTet));
+
+        holder.txtXepLoai.setText("Xếp Loại: " + data.get(position).getXepLoai());
+        holder.txtKPI.setText(format2.format(dblKPI));
+        holder.txtHeSoLuong.setText(format2.format(dblHeSoLuong));
+        holder.txtLuongKPI2.setText(format1.format(dblLuongKPI2));
+
+        holder.txtThucNhan.setText(format1.format(dblThucNhan));
     }
 
 
@@ -236,6 +248,21 @@ public class Adapter_TienLuong extends RecyclerView.Adapter<Adapter_TienLuong.Re
 
         @BindView(R.id.txtLuongLeTet)
         TextView txtLuongLeTet;
+
+        @BindView(R.id.txtXepLoai)
+        TextView txtXepLoai;
+
+        @BindView(R.id.txtKPI)
+        TextView txtKPI;
+
+        @BindView(R.id.txtHeSoLuong)
+        TextView txtHeSoLuong;
+
+        @BindView(R.id.txtLuongKPI2)
+        TextView txtLuongKPI2;
+
+        @BindView(R.id.txtThucNhan)
+        TextView txtThucNhan;
 
         public RecyclerViewHolder(View itemView) {
             super(itemView);

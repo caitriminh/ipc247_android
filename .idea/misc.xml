@@ -108,7 +108,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_ve_som.xml" value="0.31567028985507245" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_view_nhan_vien.xml" value="0.25" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_view_nhanvien.xml" value="0.333786231884058" />
-        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_view_nhanvien2.xml" value="0.15853658536585366" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_view_nhanvien2.xml" value="0.33" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/bottomsheet_dangky_tangca.xml" value="0.20833333333333334" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/bottomsheet_nghiphep.xml" value="0.29981884057971014" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/bottomsheet_them_giaoviec.xml" value="0.33" />
@@ -127,6 +127,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_phep_nam.xml" value="0.29635416666666664" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_tangca.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_tien_luong.xml" value="0.25" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_tien_luong_2.xml" value="0.22" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_vesom.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/cardview_item_xuattemp.xml" value="0.17350557244174267" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/dropdown_item.xml" value="0.3625" />
