@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ipc247">
+    package="com.example.quyetthang">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -16,85 +16,85 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.groupdemo.GroupActivity"
+            android:name="com.example.quyetthang.view.groupdemo.GroupActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.ThemTangCaActivity"
+            android:name="com.example.quyetthang.view.nhanvien.ThemTangCaActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.ThemCongTacActivity"
+            android:name="com.example.quyetthang.view.nhanvien.ThemCongTacActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.ThemNghiPhepActivity"
+            android:name="com.example.quyetthang.view.nhanvien.ThemNghiPhepActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.ThemVeSomActivity"
+            android:name="com.example.quyetthang.view.nhanvien.ThemVeSomActivity"
             android:exported="false" />
         <activity
-            android:name=".view.giaoviec.ThemGiaoViecActivity"
+            android:name="com.example.quyetthang.view.giaoviec.ThemGiaoViecActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.NhanVienTangCaActivity"
+            android:name="com.example.quyetthang.view.nhanvien.NhanVienTangCaActivity"
             android:exported="false" />
         <activity
-            android:name=".view.kho.NhapKhoActivity"
+            android:name="com.example.quyetthang.view.kho.NhapKhoActivity"
             android:exported="false" />
         <activity
-            android:name=".view.kho.BaoHanhActivity"
+            android:name="com.example.quyetthang.view.kho.BaoHanhActivity"
             android:exported="false" />
         <activity
-            android:name=".view.nhanvien.NghiPhepActivity"
+            android:name="com.example.quyetthang.view.nhanvien.NghiPhepActivity"
             android:exported="false" />
         <activity
-            android:name=".view.chamcong.ChamCongActivity"
+            android:name="com.example.quyetthang.view.chamcong.ChamCongActivity"
             android:exported="false" />
         <activity
-            android:name=".view.kho.ThongTinPhieuXuatActivity"
+            android:name="com.example.quyetthang.view.kho.ThongTinPhieuXuatActivity"
             android:exported="false" />
         <activity
-            android:name=".view.tienluong.TienLuongActivity"
+            android:name="com.example.quyetthang.view.tienluong.TienLuongActivity"
             android:exported="false" />
-        <activity android:name=".system.ImagePickerActivity" />
-        <activity android:name=".Ipc247Activity" />
+        <activity android:name="com.example.quyetthang.system.ImagePickerActivity" />
+        <activity android:name="com.example.quyetthang.Ipc247Activity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".view.hethong.LoginActivity">
+        <activity android:name=".view.hethong.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.kho.BarcodeActivity" />
-        <activity android:name=".view.kho.XuatKhoTempActivity" />
-        <activity android:name=".view.kho.TonKhoActivity" />
-        <activity android:name=".view.kho.XuatKhoActivity" />
-        <activity android:name=".view.nhanvien.CongTacActivity" />
-        <activity android:name=".view.nhanvien.VeSomActivity" />
-        <activity android:name=".view.nhanvien.NhanVienActivity" />
+        <activity android:name="com.example.quyetthang.view.kho.BarcodeActivity" />
+        <activity android:name="com.example.quyetthang.view.kho.XuatKhoTempActivity" />
+        <activity android:name="com.example.quyetthang.view.kho.TonKhoActivity" />
+        <activity android:name="com.example.quyetthang.view.kho.XuatKhoActivity" />
+        <activity android:name="com.example.quyetthang.view.nhanvien.CongTacActivity" />
+        <activity android:name="com.example.quyetthang.view.nhanvien.VeSomActivity" />
+        <activity android:name="com.example.quyetthang.view.nhanvien.NhanVienActivity" />
         <activity
-            android:name=".view.kho.BarcodeScanActivity"
+            android:name="com.example.quyetthang.view.kho.BarcodeScanActivity"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".view.kho.BarcodeBaoHanh2Activity"
+            android:name="com.example.quyetthang.view.kho.BarcodeBaoHanh2Activity"
             android:screenOrientation="sensor" />
 
-        <service android:name=".system.MyFirebaseService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+<!--        <service android:name="com.example.quyetthang.system.MyFirebaseService">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
-        <activity android:name=".view.bsc.BSCNhanVienActivity" />
-        <activity android:name=".view.bsc.ChiTietBSCNhanVienActivity" />
-        <activity android:name=".view.bsc.BSCPhongBanActivity" />
-        <activity android:name=".view.bsc.ChiTietBSCPhongBanActivity" />
-        <activity android:name=".view.bsc.BSCViTriCongViecActivity" />
-        <activity android:name=".view.bsc.ChiTietBSCViTriCongViecActivity" />
-        <activity android:name=".view.nhanvien.PhepNamActivity" />
-        <activity android:name=".view.nhanvien.NhanVienImageActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.BSCNhanVienActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.ChiTietBSCNhanVienActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.BSCPhongBanActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.ChiTietBSCPhongBanActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.BSCViTriCongViecActivity" />
+        <activity android:name="com.example.quyetthang.view.bsc.ChiTietBSCViTriCongViecActivity" />
+        <activity android:name="com.example.quyetthang.view.nhanvien.PhepNamActivity" />
+        <activity android:name="com.example.quyetthang.view.nhanvien.NhanVienImageActivity" />
     </application>
 
 </manifest>

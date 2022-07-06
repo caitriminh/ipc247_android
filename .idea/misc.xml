@@ -80,7 +80,7 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/drawable/ic_twitter.xml" value="0.219" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/drawable/ic_user_black.xml" value="0.205" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/drawable/round_outline.xml" value="0.219" />
-        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bao_hanh.xml" value="0.333786231884058" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bao_hanh.xml" value="0.1" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bao_hanh2.xml" value="0.25885416666666666" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bsc_nhanvien.xml" value="0.333786231884058" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/layout/activity_bsc_phongban.xml" value="0.333786231884058" />
@@ -150,10 +150,11 @@
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_item_xacnhan.xml" value="0.3625" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/menu_search_item.xml" value="0.3625" />
         <entry key="..\:/Project/ipc247_android/app/src/main/res/menu/navigation.xml" value="0.3567708333333333" />
+        <entry key="..\:/Project/ipc247_android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
